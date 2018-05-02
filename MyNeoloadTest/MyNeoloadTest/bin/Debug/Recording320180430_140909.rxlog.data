@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<report
+	progress="">
+	<activity
+		result="Success"
+		duration="0ms"
+		durationms="0"
+		type="root"
+		rid="31208e319ea27d10"
+		totalerrorcount="0"
+		totalwarningcount="0"
+		totalsuccesstestcasecount="0"
+		totalfailedtestcasecount="0"
+		totalblockedtestcasecount="0"
+		childsuccesscount="0"
+		childfailedcount="0"
+		childblockedcount="0"
+		totalsuccesscount="0"
+		totalfailedcount="0"
+		totalblockedcount="0"
+		totalmaintenancemodecount="0"
+		user="mlasram"
+		rxversion="8.1.1.0"
+		host="MLASRAM"
+		osversion="Windows 7 Service Pack 1 64bit"
+		runtimeversion="4.0.30319.42000"
+		procarch="32bit"
+		oslanguage="fr-FR"
+		dtnlanguage="fr-FR"
+		screenresolution="3600x1080"
+		timestamp="30/04/2018 14:09:13"
+		timestampiso="2018-04-30T12:09:13"
+		endtime="30/04/2018 14:09:16"
+		timeoutfactor="1"
+		module="Recording3">
+		<detail>
+			Recording3
+		</detail>
+		<varbindings>
+		</varbindings>
+		<item
+			timeRelativeToTestSuiteStartTime="00:00.782"
+			timeRelativeToTestModuleStartTime="00:00.782"
+			timeWallClock="14:09:14"
+			time="00:00.782"
+			level="Info"
+			category="Website">
+			<message>
+				Opening web site 'http://ushahidi.demo.neotys.com' with browser 'chrome' in normal mode.
+			</message>
+			<metainfo
+				itemindex="0"
+				codefile="c:\Users\mlasram\Documents\Ranorex\RanorexStudio Projects\MyNeoloadTest\MyNeoloadTest\Recording3.cs"
+				codeline="82"
+				loglvl="Info">
+			</metainfo>
+		</item>
+		<item
+			timeRelativeToTestSuiteStartTime="00:00.938"
+			timeRelativeToTestModuleStartTime="00:00.938"
+			timeWallClock="14:09:14"
+			time="00:00.938"
+			level="Info"
+			category="Mouse">
+			<message>
+				Mouse Left Click item 'NeoLoadWeb.Client' at 829;246.
+			</message>
+			<metainfo
+				type="repoitem"
+				path="//container[@accessiblename~'^Neotys\ Ushahidi\ -\ Google\ ']/container/container[1]"
+				itempath="container[@accessiblename~'^Neotys\ Ushahidi\ -\ Google\ ']/container/container[1]"
+				fullname="MyNeoloadTestRepository.NeoLoadWeb.Client"
+				id="4df0da61792a49fcb5dfe1bf05fcb461"
+				timeout="60000"
+				codefile="c:\Users\mlasram\Documents\Ranorex\RanorexStudio Projects\MyNeoloadTest\MyNeoloadTest\Recording3.cs"
+				codeline="86"
+				itemindex="1"
+				loglvl="Info">
+			</metainfo>
+		</item>
+	</activity>
+</report>

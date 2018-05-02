@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NeotysRestRuntimeAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Neotys.RuntimeAPI.Client.IRuntimeAPIClient">
+            <summary>
+            Neotys Runtime API Client interface.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.IRuntimeAPIClient.StartTest(Neotys.RuntimeAPI.Model.StartTestParams)">
+            <summary>
+            Start a test. </summary>
+            <param name="startTestParams"> </param>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="!:NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.IRuntimeAPIClient.StopTest(Neotys.RuntimeAPI.Model.StopTestParams)">
+            <summary>
+            Stop a test. </summary>
+            <param name="stopTestParams"> </param>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="!:NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.IRuntimeAPIClient.getStatus">
+            <summary>
+            Get the status of NeoLoad. </summary>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="!:NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.IRuntimeAPIClient.AddVirtualUsers(Neotys.RuntimeAPI.Model.AddVirtualUsersParams)">
+            <summary>
+            Add Virtual Users. </summary>
+            <param name="addVirtualUsersParam"> </param>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="!:NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.IRuntimeAPIClient.StopVirtualUsers(Neotys.RuntimeAPI.Model.StopVirtualUsersParams)">
+            <summary>
+            Stop Virtual Users. </summary>
+            <param name="stopVirtualUsersParams"> </param>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="!:NeotysAPIException"> </exception>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo">
+            <summary>
+            An implementation of a Runtime API Client, based on Apache Olingo framework.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.#ctor(System.String,System.String)">
+            <summary>
+            Create a new Runtime API client, connected to the server at the end point 'url' and authenticating with 'apiKey'. </summary>
+            <param name="url"> </param>
+            <param name="apiKey"> </param>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.StartTest(Neotys.RuntimeAPI.Model.StartTestParams)">
+            <summary>
+            Start a test. </summary>
+            <param name="startTestParams"> </param>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.StopTest(Neotys.RuntimeAPI.Model.StopTestParams)">
+            <summary>
+            Stop a test. </summary>
+            <param name="stopTestParams"> </param>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.getStatus">
+            <summary>
+            Get the test status. </summary>
+            <param name="stopTestParams"> </param>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.AddVirtualUsers(Neotys.RuntimeAPI.Model.AddVirtualUsersParams)">
+            <summary>
+            Add Virtual Users. </summary>
+            <param name="addVirtualUsersParams"> </param>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientOlingo.StopVirtualUsers(Neotys.RuntimeAPI.Model.StopVirtualUsersParams)">
+            <summary>
+            Stop Virtual Users. </summary>
+            <param name="stopVirtualUsersParams"> </param>
+            <exception cref="!:ODataException"> </exception>
+            <exception cref="!:GeneralSecurityException"> </exception>
+            <exception cref="!:IOException"> </exception>
+            <exception cref="!:URISyntaxException"> </exception>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Client.RuntimeAPIClientFactory">
+            <summary>
+            Factory to build RuntimeAPIClient based on Apache Olingo implementation.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientFactory.NewClient(System.String)">
+            <summary>
+            Create a new Runtime API client, connected to the server at the end point 'url'. </summary>
+            <param name="url"> </param>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Client.RuntimeAPIClientFactory.NewClient(System.String,System.String)">
+            <summary>
+            Create a new Runtime API client, connected to the server at the end point 'url', with authenticating with 'apiKey'. </summary>
+            <param name="url"> </param>
+            <param name="apiKey"> </param>
+            <exception cref="T:Neotys.CommonAPI.Error.NeotysAPIException"> </exception>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StopVirtualUsersParamsBuilder">
+            <summary>
+            Builder for object <seealso cref="T:Neotys.RuntimeAPI.Model.StopVirtualUsersParams"/>.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Model.StopVirtualUsersParamsBuilder.#ctor(System.String,System.Int32)">
+            
+            <param name="scenarioName"> </param>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.StopPolicy.APPLY_DEFINED">
+            <summary>
+            The stop policy defined in scenario will be applied. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.StopPolicy.STOP_IMMEDIATELY">
+            <summary>
+            The Virtual Users will stop immediately. </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StopVirtualUsersParams">
+            <summary>
+            StopVirtualUsers is the method sent to the Runtime API Server.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.AddVirtualUsersParams">
+            <summary>
+            AddVirtualUsers is the method sent to the Runtime API Server.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.AddVirtualUsersParamsBuilder">
+            <summary>
+            Builder for object <seealso cref="T:Neotys.RuntimeAPI.Model.AddVirtualUsersParams"/>.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Model.AddVirtualUsersParamsBuilder.#ctor(System.String,System.Int32)">
+            
+            <param name="scenarioName"> </param>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StartTestParams">
+            <summary>
+            StartTest is the method sent to the Runtime API Server.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StartTestParamsBuilder">
+            <summary>
+            Builder for object <seealso cref="T:Neotys.RuntimeAPI.Model.StartTestParams"/>.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="M:Neotys.RuntimeAPI.Model.StartTestParamsBuilder.#ctor(System.String)">
+            
+            <param name="scenarioName"> </param>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.NEOLOAD_INITIALIZING">
+            <summary>
+            NeoLoad is starting up. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.NO_PROJECT">
+            <summary>
+            No project is opened. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.PROJECT_INITIALIZING">
+            <summary>
+            The project is getting opened. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.READY">
+            <summary>
+            Project is opened, NeoLoad is ready to start a test. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.BUSY">
+            <summary>
+            NeoLoad is busy, a test can't be started. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.TEST_LOADING">
+            <summary>
+            The test is getting started. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.TEST_RUNNING">
+            <summary>
+            The test is running. </summary>
+        </member>
+        <member name="F:Neotys.RuntimeAPI.Model.Status.TEST_STOPPING">
+            <summary>
+            The test is getting stopped. </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StopTestParams">
+            <summary>
+            StopTest is the method sent to the Runtime API Server.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+        <member name="T:Neotys.RuntimeAPI.Model.StopTestParamsBuilder">
+            <summary>
+            Builder for object <seealso cref="T:Neotys.RuntimeAPI.Model.StopTestParams"/>.
+            
+            @author anouvel
+            
+            </summary>
+        </member>
+    </members>
+</doc>

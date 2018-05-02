@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{638F4593-2836-4F59-A74A-4F5522FF2D01}</ProjectGuid>
+    <TargetFrameworkProfile />
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MyNeoloadTest</RootNamespace>
+    <AssemblyName>MyNeoloadTest</AssemblyName>
+    <RanorexVersion>8.1</RanorexVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RanorexTargetsPath>$(MSBuildProgramFiles32)\MSBuild\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
+    <projectdefaultrepository>65cc9a31-65f4-4598-914a-687e10380aa4</projectdefaultrepository>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DllImportX">
+      <HintPath>..\packages\DllImportX.0.0.1\lib\net35\DllImportX.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core">
+      <HintPath>..\packages\Microsoft.OData.Core.6.14.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm">
+      <HintPath>..\packages\Microsoft.OData.Edm.6.14.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial">
+      <HintPath>..\packages\Microsoft.Spatial.6.14.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="NeotysRestCommonAPI">
+      <HintPath>..\packages\NeotysRestCommonAPI.1.0.1\lib\net40\NeotysRestCommonAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NeotysRestDataExchangeAPI">
+      <HintPath>..\packages\NeotysRestDataExchangeAPI.1.0.0\lib\net40\NeotysRestDataExchangeAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NeotysRestDesignAPI">
+      <HintPath>..\packages\NeotysRestDesignAPI.1.0.2\lib\net40\NeotysRestDesignAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="NeotysRestRuntimeAPI">
+      <HintPath>..\packages\NeotysRestRuntimeAPI.1.0.1\lib\net40\NeotysRestRuntimeAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ranorex.Bootstrapper">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Core.Resolver">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Cef">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.ChromeWeb">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.FirefoxWeb">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Flex">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Java">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Mobile">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Msaa">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Office">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Qt">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.RawText">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Sap">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Uia">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Web">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.WebDriver">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Win32">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.WinForms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Ranorex.Plugin.Wpf">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Simple.OData.Client.Net40">
+      <HintPath>..\packages\Simple.OData.Client.4.16.0\lib\net40\Simple.OData.Client.Net40.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <id>b597b5f3-88f5-4839-8ef2-c2bcf1312d20</id>
+    </Compile>
+    <Compile Include="MyNeoloadTestRepository.cs">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <DependentUpon>MyNeoloadTestRepository.rxrep</DependentUpon>
+      <RepositoryCode>true</RepositoryCode>
+      <id>5bf4f795-18a2-46c2-a20c-b61cb21f02d7</id>
+    </Compile>
+    <Compile Include="NeoLoad\config\ParamBuilderProvider.cs">
+      <id>1cdb489f-bab8-4dcb-9ca7-2a37144aee83</id>
+    </Compile>
+    <Compile Include="NeoLoad\INeoloadApi.cs">
+      <id>d2a2556e-f87c-4815-a326-cfc44bc5ab42</id>
+    </Compile>
+    <Compile Include="NeoLoad\Messages.cs">
+      <id>cccce0d3-ad1e-468f-bec0-a1873fb75ac1</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\AddVirtualUsers.cs">
+      <id>cf7afd1b-b970-4065-ae0c-8471f22fff3e</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\CloseNeoloadProject.cs">
+      <id>986c71d8-5ffd-4d79-b987-d797936fbdd6</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\ConnectDataExchangeApi.cs">
+      <id>0d1d7b5c-93be-4b3b-bf60-fc50e1aef488</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\ConnectToRuntimeApi.cs">
+      <id>6957931e-7d82-45bc-8e17-84644cccbeba</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\CreateNewNeoloadProject.cs">
+      <id>24ccad7f-b0f0-4845-9eff-e11b9049898f</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\Design\StartNeoloadRecording_Extended.cs">
+      <id>2159d413-9831-441b-a4eb-e35875c7cef0</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\Design\StopNeoloadRecording_Extended.cs">
+      <id>3b9b20ac-3a5d-44fb-8abb-ee1839bae981</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\InitDesignApiConnection.cs">
+      <id>08be3fd7-84f0-46fa-b717-f368e7eb416c</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\OpenNeoloadProject.cs">
+      <id>766ed6fe-6baf-4d37-a793-be13fd7a78e5</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\SaveNeoloadProject.cs">
+      <id>0f6e3467-b279-432a-a1c9-2bb37e09dc6a</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\RemoveVirtualUsers.cs">
+      <id>55c833c0-db65-4ed4-9d98-482183ff5a5f</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\StartNeoloadRecording.cs">
+      <id>b31e36f6-7352-4d94-bde9-859d023afe1f</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\StartNeoLoadTest.cs">
+      <id>9f42b8bc-7774-44a5-87a9-8d1928ee0c93</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\StopNeoloadRecording.cs">
+      <id>e5296b2f-1330-49c8-a4aa-43411c67dcf0</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\StopNeoloadTest.cs">
+      <id>ca2fdcca-790f-459a-aa3e-9d47805df6dd</id>
+    </Compile>
+    <Compile Include="NeoLoad\NavigationTimingWrapper.cs">
+      <id>5cd93495-da75-4728-8868-cc2bb565cdd0</id>
+    </Compile>
+    <Compile Include="NeoLoad\NeoloadApi.cs">
+      <id>ea3686a9-cc69-423e-8f02-1b283f93c26d</id>
+    </Compile>
+    <Compile Include="NeoLoad\NeoLoadCodeCollection.cs">
+      <id>0f9b71fc-f710-4b8e-85cd-fa18d01f535b</id>
+    </Compile>
+    <Compile Include="NeoLoad\_NeoloadDesignAPIWrapper.cs">
+      <id>70192e6c-a24f-4bf3-aa7a-a2d75c6868d9</id>
+    </Compile>
+    <Compile Include="Program.cs">
+      <id>dea89852-4df0-43ba-a636-4cbcd94c9ad5</id>
+    </Compile>
+    <Compile Include="Recording1.cs">
+      <BoundTo>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</BoundTo>
+      <DependentUpon>Recording1.rxrec</DependentUpon>
+      <RecorderCode>true</RecorderCode>
+      <id>9f10c6ad-fb83-49dd-bbd0-2c8c17a8189b</id>
+    </Compile>
+    <Compile Include="Recording1.UserCode.cs">
+      <BoundTo>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</BoundTo>
+      <DependentUpon>Recording1.rxrec</DependentUpon>
+      <UserCode>true</UserCode>
+      <id>a81cb0b6-3f9e-4377-8bcd-3e862bc24c4b</id>
+    </Compile>
+    <Compile Include="Recording2.cs">
+      <BoundTo>cfe1db80-0d24-462b-8983-ab5eb49253b9</BoundTo>
+      <DependentUpon>Recording2.rxrec</DependentUpon>
+      <RecorderCode>true</RecorderCode>
+      <id>6a7b8e6b-fd94-4b37-bc41-ef64e54227dd</id>
+    </Compile>
+    <Compile Include="Recording2.UserCode.cs">
+      <BoundTo>cfe1db80-0d24-462b-8983-ab5eb49253b9</BoundTo>
+      <DependentUpon>Recording2.rxrec</DependentUpon>
+      <UserCode>true</UserCode>
+      <id>d1386ae2-7687-4bf2-a835-70a1682e0c9d</id>
+    </Compile>
+    <Compile Include="Recording3.cs">
+      <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
+      <DependentUpon>Recording3.rxrec</DependentUpon>
+      <RecorderCode>true</RecorderCode>
+      <id>1159f156-4794-481d-9620-27f86a8014d3</id>
+    </Compile>
+    <Compile Include="Recording3.UserCode.cs">
+      <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
+      <DependentUpon>Recording3.rxrec</DependentUpon>
+      <UserCode>true</UserCode>
+      <id>870ce552-1f9c-46bd-a50e-a639850e12b2</id>
+    </Compile>
+    <Compile Include="Recording4.cs">
+      <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
+      <DependentUpon>Recording4.rxrec</DependentUpon>
+      <RecorderCode>true</RecorderCode>
+      <id>5d730509-2ec2-4668-b978-636d08d88ad7</id>
+    </Compile>
+    <Compile Include="Recording4.UserCode.cs">
+      <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
+      <DependentUpon>Recording4.rxrec</DependentUpon>
+      <UserCode>true</UserCode>
+      <id>b6ad8399-7db7-4286-8e63-dee353986943</id>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <id>6a65be19-8789-4dc3-921f-4022474b250f</id>
+    </None>
+    <None Include="MyNeoloadTestRepository.rximg">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <DependentUpon>MyNeoloadTestRepository.rxrep</DependentUpon>
+      <imageblob>true</imageblob>
+      <id>cc728fe7-81d0-440b-9dda-8e32d910eef4</id>
+    </None>
+    <None Include="MyNeoloadTestRepository.rxrep">
+      <id>65cc9a31-65f4-4598-914a-687e10380aa4</id>
+      <repoid>f3a9135a-32c2-4ae9-bf9e-2bb00bf65bac</repoid>
+      <reporootid>7fac3fb8-5dbd-4a96-9ccc-77574879612a</reporootid>
+    </None>
+    <None Include="NeoLoad\NEOLOAD_README.txt">
+      <id>c48326f7-171c-4e28-ac96-c6da1cb07031</id>
+    </None>
+    <None Include="packages.config">
+      <id>11e9d116-c729-4be7-a54b-4cbd9a7fb501</id>
+    </None>
+    <None Include="Recording1.rxrec">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <id>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</id>
+      <recordtableid>7eb37bc5-3d72-4d3c-982a-d00ae222d57e</recordtableid>
+    </None>
+    <None Include="Recording2.rxrec">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <id>cfe1db80-0d24-462b-8983-ab5eb49253b9</id>
+      <recordtableid>44bb48f2-64a1-486f-b66d-d0347cd473c8</recordtableid>
+    </None>
+    <None Include="Recording3.rxrec">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <id>e4aacafe-e832-41a7-a855-50547806b735</id>
+      <recordtableid>a645a157-ef64-4983-8fa1-d7e145fba24b</recordtableid>
+    </None>
+    <None Include="Recording4.rxrec">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <id>3e7ab485-896b-4b75-90a2-88dc552e9ab9</id>
+      <recordtableid>c761e308-8719-4555-8c3c-df21817a2bb1</recordtableid>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyNeoloadTest.rxtmg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <id>1b76969a-d9c1-4a22-9e25-b0f7030e895c</id>
+    </Content>
+    <Content Include="MyNeoloadTest.rxtst">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <id>81d44fc2-dd93-45b8-ba60-93ffd39d5e97</id>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NeoLoad\config">
+      <id>8b4156e4-f89c-4f72-afc0-43ea2503de0c</id>
+    </Folder>
+    <Folder Include="NeoLoad\Modules\Design">
+      <id>d6381c6c-a6e9-4b67-b98f-1d4b0550c6ee</id>
+    </Folder>
+    <Folder Include="NeoLoad\Proxy">
+      <id>74959c75-46b6-431c-be7f-94025ad1f002</id>
+    </Folder>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(RanorexTargetsPath)" Condition="Exists('$(RanorexTargetsPath)')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+</Project>
