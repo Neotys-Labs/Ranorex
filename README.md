@@ -165,7 +165,7 @@ Interaction with the NeoLoad Design API allows you to open/create/save/close Neo
 
 <p align="center"><img src="/screenshots/closeproject.png" alt="Close project" /></p>
 
-### How to record a Ranorex script into a NeoLoad User Path
+### How to record/update a Ranorex script into a NeoLoad User Path
 
 Interaction with the NeoLoad Design API allows you to record/update a Ranorex script into NeoLoad.
 
