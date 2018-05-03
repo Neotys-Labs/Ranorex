@@ -141,15 +141,66 @@ To access these values, go to the NeoLoad **Preferences**, then the **Project se
 
 ## Tutorials
 
+### How to open/create/save/close NeoLoad project
+
+Interaction with the NeoLoad Design API allows you to open/create/save/close NeoLoad project from Ranorex module.
+
+* Insert the module NL_ConnectToDesignAPI into the test case. 
+
+<p align="center"><img src="/screenshots/connecttodesignapi.png" alt="Connect to DesignAPI" /></p>
+
+* To open an existing NeoLoad project, insert module NL_OpenProject into the test case.
+
+<p align="center"><img src="/screenshots/openproject.png" alt="Open project" /></p>
+
+* To create a new NeoLoad project, insert module NL_CreateProject into the test case.
+
+<p align="center"><img src="/screenshots/createproject.png" alt="Create project" /></p>
+
+* To save a NeoLoad project, insert module NL_SaveProject into the test case.
+
+<p align="center"><img src="/screenshots/saveproject.png" alt="Save project" /></p>
+
+* To close a NeoLoad project, insert module NL_CloseProject into the test case.
+
+<p align="center"><img src="/screenshots/closeproject.png" alt="Close project" /></p>
+
 ### How to record a Ranorex script into a NeoLoad User Path
 
-### How to update an existing NeoLoad User Path from a Ranorex script
+Interaction with the NeoLoad Design API allows you to record/update a Ranorex script into NeoLoad.
 
-### How to open/create/save/close NeoLoad project
+* Insert the module NL_ConnectToDesignAPI into the test case.
+* Insert the module NL_StartRecording into the test case, before the recording.
+* Insert the module NL_StopRecording into the test case, after the recording.  
+
+<p align="center"><img src="/screenshots/startstoprecording.png" alt="Start stop recording" /></p>
+
+During the execution of the Ranorex test case, if the NeoLoad User Path does not exist, it will be created. Otherwise, the existing User Path will be updated. 
 
 ### How to start/stop a NeoLoad test
 
-### How to start/stop User Path to a running NeoLoad test
+Interaction with the NeoLoad Runtime API allows you to start/stop a NeoLoad test.
+
+* Insert the module NL_ConnectToRuntimeAPI into the test case.
+* Insert the module NL_StartTest into the test case.
+* Insert the module NL_StopTest into the test case.  
+
+<p align="center"><img src="/screenshots/startstoptest.png" alt="Start stop test" /></p>
+
+### How to add/stop Virtual Users to a running NeoLoad test
+
+Interaction with the NeoLoad Runtime API allows you to add/stop Virtual Users during a NeoLoad test.
+
+* Insert the module NL_ConnectToRuntimeAPI into the test case.
+<p align="center"><img src="/screenshots/connecttoruntimeapi.png" alt="Connect to Runtime API" /></p>
+
+* To add Virtual Users, insert the module NL_AddVirtualUsers into the test case.
+
+<p align="center"><img src="/screenshots/addvirtualusers.png" alt="Add Virtual Users" /></p>
+
+* To stop Virtual Users, insert the module NL_StopVirtualUsers into the test case.
+
+<p align="center"><img src="/screenshots/stopvirtualusers.png" alt="Stop Virtual Users" /></p>
 
 ### How to send End User Experience measurement to NeoLoad
 
@@ -159,7 +210,7 @@ The Ranorex **SendTimingValues** User Code allows you yo send End User Experienc
 
 To use that user code: 
 
-* Right click on the Ranorex recording file, and select **Add new action**, **User code**, **Select from library**.
+* Right click on the Ranorex recording file, and select **Add new action**, then **User code**, and then **Select from library**.
 
 <p align="center"><img src="/screenshots/selectfromlibrary.png" alt="Select from library" /></p>
 
@@ -171,7 +222,7 @@ To use that user code:
 
 <p align="center"><img src="/screenshots/sendtimingvalues.png" alt="Send timing values" /></p> 
 
-* Insert the module NL_ConnectToDataExchangeAPI inside the test case. Make sure to insert this module after the test is started, and before executing any **SendTimingValues** code.
+* Insert the module NL_ConnectToDataExchangeAPI inside the test case. Make sure to insert this module after the test is started, and before executing the **SendTimingValues** code.
 
 <p align="center"><img src="/screenshots/connecttodataexchangeapi.png" alt="Connect to DataExchangeAPI" /></p>
 
