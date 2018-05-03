@@ -14,7 +14,7 @@ namespace Ranorex.NeoLoad
     /// Stops a NeoLoad test.
     /// </summary>
     [TestModule("861A8070-224A-47BB-91A1-920E12DA1065", ModuleType.UserCode, 1)]
-    public class StopNeoLoadTest : ITestModule
+    public class NL_StopTest : ITestModule
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;
@@ -31,7 +31,7 @@ namespace Ranorex.NeoLoad
         [TestVariable("29B0EB4D-D82E-4DDA-8ABB-355734B346D2")]
         public TimeSpan Interval { get; set; }
 
-        public StopNeoLoadTest()
+        public NL_StopTest()
         {
         	this.Timeout = TimeSpan.FromSeconds(10);
         	this.Interval = TimeSpan.FromSeconds(1);

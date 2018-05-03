@@ -2,22 +2,16 @@
   <Array name="active">
     <Element value="MyNeoloadTest.rxtst" />
   </Array>
-  <Array name="bookmarks">
-    <Element value="Breakpoint|C:\Users\mlasram\Documents\Ranorex\RanorexStudio Projects\MyNeoloadTest\MyNeoloadTest\Recording1.cs|96|13|True|Break||" />
-  </Array>
+  <Array name="bookmarks" />
   <Array name="files">
-    <Element value="NeoLoad\NeoLoadCodeCollection.cs" />
-    <Element value="NeoLoad\Modules\StopTransaction.cs" />
-    <Element value="NeoLoad\INeoloadApi.cs" />
-    <Element value="Recording1.rxrec" />
-    <Element value="NeoLoad\NeoloadApi.cs" />
     <Element value="MyNeoloadTest.rxtst" />
-    <Element value="NeoLoad\Modules\StartNeoLoadTest.cs" />
-    <Element value="NeoLoad\Modules\ConnectToRuntimeApi.cs" />
-    <Element value="NeoLoad\Modules\StopNeoloadTest.cs" />
-    <Element value="NeoLoad\Modules\StopNeoloadRecording.cs" />
-    <Element value="NeoLoad\Modules\StartNeoloadRecording.cs" />
-    <Element value="NeoLoad\Modules\StartTransaction.cs" />
+    <Element value="NeoLoad\config\ParamBuilderProvider.cs" />
+    <Element value="Recording1.rxrec" />
+    <Element value="Recording1.cs" />
+    <Element value="MyNeoloadTestRepository.rxrep" />
+    <Element value="NeoLoad\NeoLoadCodeCollection.cs" />
+    <Element value="NeoLoad\INeoloadApi.cs" />
+    <Element value="NeoLoad\NeoloadApi.cs" />
   </Array>
   <Properties name="projectSavedData">
     <Properties name="customTool">

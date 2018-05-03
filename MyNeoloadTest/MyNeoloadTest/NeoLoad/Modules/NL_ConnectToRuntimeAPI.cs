@@ -14,7 +14,7 @@ namespace Ranorex.NeoLoad
     /// Establishes a connection with the NeoLoad runtime API when run.
     /// </summary>
     [TestModule("0E3400B0-D8D5-406D-A350-A9978FAB51AB", ModuleType.UserCode, 1)]
-    public class ConnectToRuntimeApi : ITestModule
+    public class NL_ConnectToRuntimeAPI : ITestModule
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;

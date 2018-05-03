@@ -2,44 +2,43 @@
  * Created by Ranorex
  * User: cbreit
  * Date: 24.02.2017
- * Time: 18:24
+ * Time: 18:50
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Threading;
 using WinForms = System.Windows.Forms;
-
 using Ranorex;
 using Ranorex.Core;
 using Ranorex.Core.Testing;
 
-namespace NeoloadDesignTest.lib
+namespace NeoloadDesignTest.NeoloadDesignLib
 {
   /// <summary>
-  /// Description of OpenNeoloadProject.
+  /// Description of StopNeoloadRecording.
   /// </summary>
-  [TestModule("7436648F-342D-444D-B2DD-F1347E262BDB", ModuleType.UserCode, 1)]
-  public class OpenNeoloadProject : ITestModule
+  [TestModule("AFD2CC52-0F56-4372-885C-EC80FB8B19A8", ModuleType.UserCode, 1)]
+  public class NL_StopRecording : ITestModule
   {
     
-    
-    string _filePath = "";
-    [TestVariable("8a866ccd-253d-4886-8575-0cdd6c304cde")]
-    public string filePath
+    string _timeout = "";
+    [TestVariable("142819e4-fbaa-4a23-a9f5-ffda8e7b6048")]
+    public string timeout
     {
-      get { return _filePath; }
-      set { _filePath = value; }
+      get { return _timeout; }
+      set { _timeout = value; }
     }
-    
+        
     /// <summary>
     /// Constructs a new instance.
     /// </summary>
-    public OpenNeoloadProject()
+    public NL_StopRecording()
     {
         // Do not delete - a parameterless constructor is required!
     }
@@ -52,8 +51,9 @@ namespace NeoloadDesignTest.lib
     /// that will in turn invoke this method.</remarks>
     void ITestModule.Run()
     {
-        var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-        wrapper.openNeoloadProject(filePath);
+      var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
+      wrapper.stopRecording(Convert.ToInt32(timeout));
     }
   }
 }
+

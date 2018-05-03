@@ -14,7 +14,7 @@ namespace Ranorex.NeoLoad
     /// Removes virtual users from a NeoLoad test
     /// </summary>
     [TestModule("5A07983B-5CA3-4ACA-BD9E-59A37EF8FEE4", ModuleType.UserCode, 1)]
-    public class RemoveVirtualUsers : ITestModule
+    public class NL_StopVirtualUsers : ITestModule
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;
@@ -31,7 +31,7 @@ namespace Ranorex.NeoLoad
         [TestVariable("48097C49-672A-4651-A1CB-D2D0D516916D")]
         public int Amount { get; set; }
 
-        public RemoveVirtualUsers()
+        public NL_StopVirtualUsers()
         {
         	this.Amount = 1;
         }

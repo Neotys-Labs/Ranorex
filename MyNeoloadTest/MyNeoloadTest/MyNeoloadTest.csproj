@@ -185,19 +185,19 @@
     <Compile Include="NeoLoad\Messages.cs">
       <id>cccce0d3-ad1e-468f-bec0-a1873fb75ac1</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\AddVirtualUsers.cs">
+    <Compile Include="NeoLoad\Modules\NL_AddVirtualUsers.cs">
       <id>cf7afd1b-b970-4065-ae0c-8471f22fff3e</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\CloseNeoloadProject.cs">
+    <Compile Include="NeoLoad\Modules\NL_CloseProject.cs">
       <id>986c71d8-5ffd-4d79-b987-d797936fbdd6</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\ConnectDataExchangeApi.cs">
+    <Compile Include="NeoLoad\Modules\NL_ConnectToDataExchangeAPI.cs">
       <id>0d1d7b5c-93be-4b3b-bf60-fc50e1aef488</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\ConnectToRuntimeApi.cs">
+    <Compile Include="NeoLoad\Modules\NL_ConnectToRuntimeAPI.cs">
       <id>6957931e-7d82-45bc-8e17-84644cccbeba</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\CreateNewNeoloadProject.cs">
+    <Compile Include="NeoLoad\Modules\NL_CreateProject.cs">
       <id>24ccad7f-b0f0-4845-9eff-e11b9049898f</id>
     </Compile>
     <Compile Include="NeoLoad\Modules\Design\StartNeoloadRecording_Extended.cs">
@@ -206,28 +206,28 @@
     <Compile Include="NeoLoad\Modules\Design\StopNeoloadRecording_Extended.cs">
       <id>3b9b20ac-3a5d-44fb-8abb-ee1839bae981</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\InitDesignApiConnection.cs">
+    <Compile Include="NeoLoad\Modules\NL_ConnectToDesignAPI.cs">
       <id>08be3fd7-84f0-46fa-b717-f368e7eb416c</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\OpenNeoloadProject.cs">
+    <Compile Include="NeoLoad\Modules\NL_OpenProject.cs">
       <id>766ed6fe-6baf-4d37-a793-be13fd7a78e5</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\SaveNeoloadProject.cs">
+    <Compile Include="NeoLoad\Modules\NL_SaveProject.cs">
       <id>0f6e3467-b279-432a-a1c9-2bb37e09dc6a</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\RemoveVirtualUsers.cs">
+    <Compile Include="NeoLoad\Modules\NL_StopVirtualUsers.cs">
       <id>55c833c0-db65-4ed4-9d98-482183ff5a5f</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\StartNeoloadRecording.cs">
+    <Compile Include="NeoLoad\Modules\NL_StartRecording.cs">
       <id>b31e36f6-7352-4d94-bde9-859d023afe1f</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\StartNeoLoadTest.cs">
+    <Compile Include="NeoLoad\Modules\NL_StartTest.cs">
       <id>9f42b8bc-7774-44a5-87a9-8d1928ee0c93</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\StopNeoloadRecording.cs">
+    <Compile Include="NeoLoad\Modules\NL_StopRecording.cs">
       <id>e5296b2f-1330-49c8-a4aa-43411c67dcf0</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\StopNeoloadTest.cs">
+    <Compile Include="NeoLoad\Modules\NL_StopTest.cs">
       <id>ca2fdcca-790f-459a-aa3e-9d47805df6dd</id>
     </Compile>
     <Compile Include="NeoLoad\NavigationTimingWrapper.cs">

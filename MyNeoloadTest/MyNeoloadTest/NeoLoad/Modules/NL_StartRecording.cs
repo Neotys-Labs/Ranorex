@@ -24,7 +24,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 	/// Description of StartNeoloadRecording.
 	/// </summary>
 	[TestModule("C5B1B0EA-FFAA-4EC8-B37B-472B73F45291", ModuleType.UserCode, 1)]
-	public class StartNeoloadRecording : ITestModule
+	public class NL_StartRecording : ITestModule
 	{
 		
 		string _userPath = "";
@@ -61,7 +61,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 		/// <summary>
 		/// Constructs a new instance.
 		/// </summary>
-		public StartNeoloadRecording()
+		public NL_StartRecording()
 		{
 			this.Interval = "00:00:10";
 			this.Timeout = "00:01:00";

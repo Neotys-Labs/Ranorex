@@ -2,7 +2,7 @@
  * Created by Ranorex
  * User: cbreit
  * Date: 24.02.2017
- * Time: 17:25
+ * Time: 18:24
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
@@ -21,27 +21,25 @@ using Ranorex.Core.Testing;
 namespace NeoloadDesignTest.lib
 {
   /// <summary>
-  /// Description of InitDesignApiConnection.
+  /// Description of OpenNeoloadProject.
   /// </summary>
-  [TestModule("DDB5D95F-5258-4E13-8E97-2D8ED0D73741", ModuleType.UserCode, 1)]
-  public class InitDesignApiConnection : ITestModule
+  [TestModule("7436648F-342D-444D-B2DD-F1347E262BDB", ModuleType.UserCode, 1)]
+  public class NL_OpenProject : ITestModule
   {
     
-    [TestVariable("acdf946c-cd96-4a71-8bb7-90649f69b87b")]
-    public Mode mode {get; set;}
-   
-    [TestVariable("2cb2bf6d-616a-4fd3-afc5-4a301fb94338")]
-    public string DesignApiUri{get; set;}
     
-    string _ApiKey = "null";
-    [TestVariable("4cc6f8c7-1ccf-43af-895e-8778d8ebedc3")]
-    public string ApiKey
+    string _filePath = "";
+    [TestVariable("8a866ccd-253d-4886-8575-0cdd6c304cde")]
+    public string filePath
     {
-    	get { return _ApiKey; }
-    	set { _ApiKey = value; }
+      get { return _filePath; }
+      set { _filePath = value; }
     }
     
-    public InitDesignApiConnection()
+    /// <summary>
+    /// Constructs a new instance.
+    /// </summary>
+    public NL_OpenProject()
     {
         // Do not delete - a parameterless constructor is required!
     }
@@ -54,13 +52,8 @@ namespace NeoloadDesignTest.lib
     /// that will in turn invoke this method.</remarks>
     void ITestModule.Run()
     {
-      if (string.IsNullOrWhiteSpace(this.DesignApiUri))
-      {
-      	throw new InvalidOperationException("No design API URL provided. Cannot connect to NeoLoad server provided.");
-      }
-    	
-      var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-      wrapper.init(mode, DesignApiUri, ApiKey);
+        var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
+        wrapper.openNeoloadProject(filePath);
     }
   }
 }

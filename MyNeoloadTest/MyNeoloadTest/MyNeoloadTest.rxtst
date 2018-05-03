@@ -5,7 +5,7 @@ rxversion="8.1">
 		<flatlistofchildren>
 			<testmodule
 			id="24b73d95-a210-45f5-a7c1-9de5d0547415"
-			name="StartNeoloadRecording"
+			name="NL_StartRecording"
 			ref="c5b1b0ea-ffaa-4ec8-b37b-472b73f45291"
 			type="UserCode">
 				<databinding>
@@ -124,7 +124,7 @@ rxversion="8.1">
 			</testcase>
 			<testmodule
 			id="c28d9b72-d09d-4ea9-a1a6-a8b92f5201b3"
-			name="StopNeoloadRecording"
+			name="NL_StopRecording"
 			ref="afd2cc52-0f56-4372-885c-ec80fb8b19a8"
 			type="UserCode">
 				<databinding>
@@ -152,7 +152,7 @@ rxversion="8.1">
 			</testsuite>
 			<testmodule
 			id="e7d558c5-e576-4b58-930f-c8d003511ced"
-			name="InitDesignApiConnection"
+			name="NL_ConnectToDesignAPI"
 			ref="ddb5d95f-5258-4e13-8e97-2d8ed0d73741"
 			type="UserCode">
 				<databinding>
@@ -189,11 +189,11 @@ rxversion="8.1">
 					name="TestCase">
 						<testmodule
 						id="e7d558c5-e576-4b58-930f-c8d003511ced"
-						name="InitDesignApiConnection">
+						name="NL_ConnectToDesignAPI">
 						</testmodule>
 						<testmodule
 						id="24b73d95-a210-45f5-a7c1-9de5d0547415"
-						name="StartNeoloadRecording">
+						name="NL_StartRecording">
 						</testmodule>
 						<testmodule
 						id="34393997-09c3-4718-854a-5243bb724fbf"
@@ -201,7 +201,7 @@ rxversion="8.1">
 						</testmodule>
 						<testmodule
 						id="c28d9b72-d09d-4ea9-a1a6-a8b92f5201b3"
-						name="StopNeoloadRecording">
+						name="NL_StopRecording">
 						</testmodule>
 					</testcase>
 				</testcase>
@@ -224,49 +224,49 @@ rxversion="8.1">
 	</testconfigurations>
 	<references>
 		<reference>
-			DllImportX.dll
+			DllImportX
 		</reference>
 		<reference>
-			Microsoft.Data.Edm.dll
+			Microsoft.Data.Edm
 		</reference>
 		<reference>
-			Microsoft.Data.OData.dll
+			Microsoft.Data.OData
 		</reference>
 		<reference>
-			Microsoft.OData.Core.dll
+			Microsoft.OData.Core
 		</reference>
 		<reference>
-			Microsoft.OData.Edm.dll
+			Microsoft.OData.Edm
 		</reference>
 		<reference>
-			Microsoft.Spatial.dll
+			Microsoft.Spatial
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks.dll
+			Microsoft.Threading.Tasks
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks.Extensions.Desktop.dll
+			Microsoft.Threading.Tasks.Extensions
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks.Extensions.dll
+			Microsoft.Threading.Tasks.Extensions.Desktop
 		</reference>
 		<reference>
-			NeotysRestCommonAPI.dll
+			NeotysRestCommonAPI
 		</reference>
 		<reference>
-			NeotysRestDataExchangeAPI.dll
+			NeotysRestDataExchangeAPI
 		</reference>
 		<reference>
-			NeotysRestDesignAPI.dll
+			NeotysRestDesignAPI
 		</reference>
 		<reference>
-			NeotysRestRuntimeAPI.dll
+			NeotysRestRuntimeAPI
 		</reference>
 		<reference>
 			Newtonsoft.Json.dll
 		</reference>
 		<reference>
-			Simple.OData.Client.Net40.dll
+			Simple.OData.Client.Net40
 		</reference>
 	</references>
 </testsuitedoc>

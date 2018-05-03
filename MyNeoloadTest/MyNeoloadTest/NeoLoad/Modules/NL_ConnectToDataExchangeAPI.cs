@@ -19,7 +19,7 @@ namespace Ranorex.NeoLoad
     /// was established.
     /// </remarks>
     [TestModule("E9E07FEF-4B9A-4B90-8C96-716398AE1FE2", ModuleType.UserCode)]
-    public sealed class ConnectDataExchangeApi : ITestModule
+    public sealed class NL_ConnectToDataExchangeAPI : ITestModule
     {
         internal static INeoloadApi api = NeoloadApi.Instance;
 
@@ -54,7 +54,7 @@ namespace Ranorex.NeoLoad
         [TestVariable("673C217F-E8B4-484F-BF21-301E3A16C23B")]
         public string Software { get; set; }
                 
-        public ConnectDataExchangeApi()
+        public NL_ConnectToDataExchangeAPI()
         {
         	this.Hardware = "Example Hardware";
         	this.Software = "Example Software";

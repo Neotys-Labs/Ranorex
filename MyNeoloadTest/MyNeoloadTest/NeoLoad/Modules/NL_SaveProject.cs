@@ -24,12 +24,12 @@ namespace NeoloadDesignTest.lib
   /// Description of SaveNeoloadProject.
   /// </summary>
   [TestModule("23D296C2-D87D-4F67-ACE0-652BDF3F4CFF", ModuleType.UserCode, 1)]
-  public class SaveNeoloadProject : ITestModule
+  public class NL_SaveProject : ITestModule
   {
     /// <summary>
     /// Constructs a new instance.
     /// </summary>
-    public SaveNeoloadProject()
+    public NL_SaveProject()
     {
         // Do not delete - a parameterless constructor is required!
     }

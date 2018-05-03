@@ -2,7 +2,7 @@
  * Created by Ranorex
  * User: cbreit
  * Date: 24.02.2017
- * Time: 18:25
+ * Time: 18:28
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
@@ -21,40 +21,32 @@ using Ranorex.Core.Testing;
 namespace NeoloadDesignTest.lib
 {
   /// <summary>
-  /// Description of CreateNewNeoloadProject.
+  /// Description of CloseNeoloadProject.
   /// </summary>
-  [TestModule("B5837194-4007-495C-B9CD-C635C8B09B95", ModuleType.UserCode, 1)]
-  public class CreateNewNeoloadProject : ITestModule
+  [TestModule("542010D5-9D0D-46DF-91D9-CEECCAFBE9F8", ModuleType.UserCode, 1)]
+  public class NL_CloseProject : ITestModule
   {
     
-    string _projectName = "";
-    [TestVariable("0b7c3530-3314-4387-9296-d71f8e33eda5")]
-    public string projectName
+    string _saveProject = "true";
+    [TestVariable("c8ab3ec1-06dd-40dd-84dd-56856a129743")]
+    public string saveProject
     {
-      get { return _projectName; }
-      set { _projectName = value; }
+      get { return _saveProject; }
+      set { _saveProject = value; }
     }
     
-    string _directoryPath = "";
-    [TestVariable("02e90948-e96e-4e8c-8a48-331b1f74ef10")]
-    public string directoryPath
+    string _forceStop = "false";
+    [TestVariable("ae358bd4-2ea5-4153-9beb-fe1ad77c27e3")]
+    public string forceStop
     {
-      get { return _directoryPath; }
-      set { _directoryPath = value; }
-    }
-    
-    string _overwriteExisting = "";
-    [TestVariable("caa5ce38-0ce3-43cd-9e0c-60229916ce29")]
-    public string overwriteExisting
-    {
-      get { return _overwriteExisting; }
-      set { _overwriteExisting = value; }
+      get { return _forceStop; }
+      set { _forceStop = value; }
     }
     
     /// <summary>
     /// Constructs a new instance.
     /// </summary>
-    public CreateNewNeoloadProject()
+    public NL_CloseProject()
     {
         // Do not delete - a parameterless constructor is required!
     }
@@ -68,7 +60,7 @@ namespace NeoloadDesignTest.lib
     void ITestModule.Run()
     {
       var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-      wrapper.createNewNeoloadProject(projectName, directoryPath, Boolean.Parse(overwriteExisting));
+      wrapper.closeNeoloadProject(Convert.ToBoolean(saveProject), Convert.ToBoolean(forceStop));
     }
   }
 }

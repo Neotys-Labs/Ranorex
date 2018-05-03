@@ -19,7 +19,7 @@ namespace Ranorex.NeoLoad
     /// established prior.
     /// </remarks>
     [TestModule("1702CBFB-DA15-4C42-B6C4-6FCBA8DAE96F", ModuleType.UserCode, 1)]
-    public class StartNeoLoadTest : ITestModule
+    public class NL_StartTest : ITestModule
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;
@@ -42,7 +42,7 @@ namespace Ranorex.NeoLoad
         [TestVariable("7242C624-2E81-447E-A148-533E4BB082BE")]
         public string Scenario { get; set; }
 
-        public StartNeoLoadTest()
+        public NL_StartTest()
         {
         	this.Interval = "00:00:10";
         	this.Timeout = "00:01:00";

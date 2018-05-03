@@ -14,7 +14,7 @@ namespace Ranorex.NeoLoad
     /// Adds virtual users to a NeoLoad test
     /// </summary>
     [TestModule("A23B027C-8602-48D8-87F1-1A5CAC12FA52", ModuleType.UserCode, 1)]
-    public class AddVirtualUsers : ITestModule
+    public class NL_AddVirtualUsers : ITestModule
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;
@@ -31,7 +31,7 @@ namespace Ranorex.NeoLoad
         [TestVariable("48097C49-672A-4651-A1CB-D2D0D516916D")]
         public int Amount { get; set; }
 
-        public AddVirtualUsers()
+        public NL_AddVirtualUsers()
         {
         	this.Amount = 1;
         }
