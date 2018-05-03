@@ -6,8 +6,8 @@
 
 C# extensions to integrate [Ranorex](https://www.ranorex.com/) with [NeoLoad](https://www.neotys.com/neoload/overview) for Script maintenance and End User Experience measurement.
 It allows you to interact with the NeoLoad API: 
-* [Design API](https://www.neotys.com/documents/doc/neoload/latest/en/html/#11265.htm) to convert Ranorex script to NeoLoad, update an existing User Path, start/stop recording, specify transaction names, open/close/save/create project, 
-* [Runtime API](https://www.neotys.com/documents/doc/neoload/latest/en/html/#18727.htm) to start/stop a test, start/stop users,
+* [Design API](https://www.neotys.com/documents/doc/neoload/latest/en/html/#11265.htm) to convert Ranorex script to NeoLoad, update an existing User Path, start/stop recording, open/close/save/create NeoLoad project, 
+* [Runtime API](https://www.neotys.com/documents/doc/neoload/latest/en/html/#18727.htm) to start/stop a test, start/stop Virtual Users,
 * [DataExchange API](https://www.neotys.com/documents/doc/neoload/latest/en/html/#7676.htm) to send End User Experience measurement to NeoLoad during the load test execution.
 
 
@@ -27,21 +27,14 @@ On Ranorex Studio, add the latest version of the Ranorex - NeoLoad integration f
 1. Right-click on the **References** node in the Ranorex Projects view.
 2. Select **Manage Packages...**:
 <p align="center"><img src="/screenshots/references.png" alt="References" /></p>
+
 3. Search for **NeoLoad** in **nuget.org** and add the **Ranorex-NeoLoad integration** package:
 <p align="center"><img src="/screenshots/select package.png" alt="Select package" /></p>
 
 This will automatically add the necessary libraries to the Ranorex project. The following modules will now appear in the module browser:
 <p align="center"><img src="/screenshots/modulebrowser.png" alt="Module browser" /></p>
 
-## Design API
-
-Interaction with the Design API allows you to: 
-* Create a new NeoLoad project 
-* Open a NeoLoad project
-* Save a NeoLoad project
-* Close a NeoLoad project
-* Start a NeoLoad recording
-* Stop a NeoLoad recording 
+## NeoLoad module definitions
    
 ### Module NL_ConnectToDesignAPI
 
@@ -94,14 +87,6 @@ Parameters:
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
 
-## Runtime API
-
-Interaction with the Runtime API allows you to:
-* Start a NeoLoad test
-* Stop a NeoLoad test
-* Add Virtual Users to a running test
-* Stop Virtual Users to a running test 
-
 ### Module NL_ConnectToRuntimeAPI
 
 This module establishes a connection to the NeoLoad Runtime API. 
@@ -141,11 +126,6 @@ Parameters:
 * **Population**: The population, as defined in the NeoLoad test, virtual users will be stopped from. 
 * **Amount**: The amount of virtual users specified that will be stopped from the given population.
 
-## DataExchange API
-
-Interaction with the Data Exchange API allows you to:
-* Send timing value to NeoLoad
-
 ### Module NL_ConnectToDataExchangeAPI
 
 This module establishes a connection to the NeoLoad Data Exchange API. 
@@ -154,9 +134,48 @@ Parameters:
 * **ApiKey**: API Key specified in NeoLoad project when identification is required. If no identification is required, this variable can be left blank.
 To access these values, go to the NeoLoad **Preferences**, then the **Project settings** tab, then select the **REST API** category.
 <p align="center"><img src="/screenshots/dataexchangeapi.png" alt="Data Exchange API" /></p>
+
 * **Location**: The location, where the functional test is performed (e.g., Graz, London, Office XYZ...)
 * **Hardware**: The hardware used where the functional test is running (e.g., Intel i5-5200u). A string describing the utilized operating system is automatically appended to the string defined.
 * **Software**: The software, tested in the functional test. When testing a browser, it is recommended to hand over the browser name. When performing a cross-browser test, it is recommended to bind this variable to the column specifying the browsers.
+
+## Tutorials
+
+### How to record a Ranorex script into a NeoLoad User Path
+
+### How to update an existing NeoLoad User Path from a Ranorex script
+
+### How to open/create/save/close NeoLoad project
+
+### How to start/stop a NeoLoad test
+
+### How to start/stop User Path to a running NeoLoad test
+
+### How to send End User Experience measurement to NeoLoad
+
+Opening a website is related to a certain latency. This latency depends on various factors, such as the network connection or the browser used. It can be measured with the Navigation Timing API, which is offered by all browsers. If you evaluate these timing values, especially when the website is under load, you can localize potential bottlenecks. Eliminating the identified bottlenecks will ultimately improve the end user experience.
+
+The Ranorex **SendTimingValues** User Code allows you yo send End User Experience measurement to NeoLoad.
+
+To use that user code: 
+
+* Right click on the Ranorex recording file, and select **Add new action**, **User code**, **Select from library**.
+
+<p align="center"><img src="/screenshots/selectfromlibrary.png" alt="Select from library" /></p>
+
+* Then select the user code **SendTimingValues**, and confirm.
+
+<p align="center"><img src="/screenshots/neoloadnodecollection.png" alt="NeoLoad Node Collection" /></p> 
+ 
+* Fill column **domNode** and **transactionName**.
+
+<p align="center"><img src="/screenshots/sendtimingvalues.png" alt="Send timing values" /></p> 
+
+* Insert the module NL_ConnectToDataExchangeAPI inside the test case. Make sure to insert this module after the test is started, and before executing any **SendTimingValues** code.
+
+<p align="center"><img src="/screenshots/connecttodataexchangeapi.png" alt="Connect to DataExchangeAPI" /></p>
+
+
 
 ## ChangeLog
 
