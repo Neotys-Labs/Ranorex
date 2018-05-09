@@ -1,24 +1,30 @@
 ﻿<Properties>
-  <Array name="active">
-    <Element value="MyNeoloadTest.rxtst" />
+  <Array name="bookmarks">
+    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|84|13|True|Break||" />
+    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|509|13|True|Break||" />
   </Array>
-  <Array name="bookmarks" />
   <Array name="files">
+    <Element value="Record_EUE.cs" />
+    <Element value="Record_EUE.rxrec" />
+    <Element value="NeoLoad\_NeoloadDesignAPIWrapper.cs" />
+    <Element value="NeoLoad\Modules\NL_StopRecording.cs" />
     <Element value="MyNeoloadTest.rxtst" />
     <Element value="NeoLoad\config\ParamBuilderProvider.cs" />
-    <Element value="Recording1.rxrec" />
-    <Element value="Recording1.cs" />
     <Element value="MyNeoloadTestRepository.rxrep" />
     <Element value="NeoLoad\NeoLoadCodeCollection.cs" />
     <Element value="NeoLoad\INeoloadApi.cs" />
     <Element value="NeoLoad\NeoloadApi.cs" />
+    <Element value="NeoLoad\Modules\NL_CreateProject.cs" />
   </Array>
   <Properties name="projectSavedData">
     <Properties name="customTool">
       <runOnBuild value="False" />
     </Properties>
     <Array name="recentusercodeselections">
-      <Element value="Ranorex.NeoLoad.NeoLoadCodeCollection.SendTimingValues(RepoItemInfo domNode, String transactionName)" />
+      <Element value="Ranorex.NeoLoad.NeoLoadCodeCollection.StartTransaction(String transactionName)" />
+      <Element value="Ranorex.NeoLoad.NeoLoadCodeCollection.StartTransaction(String transactionName)" />
+      <Element value="Ranorex.NeoLoad.NeoLoadCodeCollection.StopTransaction()" />
+      <Element value="NeoloadDesignTest.NeoloadDesignAPIWrapper.StartTransaction(String name)" />
       <Element value="Ranorex.NeoLoad.NeoLoadCodeCollection.SendTimingValues(RepoItemInfo domNode, String transactionName)" />
     </Array>
   </Properties>

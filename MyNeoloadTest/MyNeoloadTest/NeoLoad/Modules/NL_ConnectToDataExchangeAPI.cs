@@ -7,6 +7,7 @@
 
 using System;
 using System.Management;
+using NeoloadDesignTest;
 using Ranorex.Core.Testing;
 
 namespace Ranorex.NeoLoad
@@ -21,7 +22,6 @@ namespace Ranorex.NeoLoad
     [TestModule("E9E07FEF-4B9A-4B90-8C96-716398AE1FE2", ModuleType.UserCode)]
     public sealed class NL_ConnectToDataExchangeAPI : ITestModule
     {
-        internal static INeoloadApi api = NeoloadApi.Instance;
 
         /// <summary>
         /// The URI to the data exchange API
@@ -78,7 +78,7 @@ namespace Ranorex.NeoLoad
             	tsName = TestSuite.Current.Name;
             }
 
-            var ctx = new NeoloadApi.NeoloadContextData()
+            var ctx = new NeoloadDesignAPIWrapper.NeoloadContextData()
             {
                 hardware = this.Hardware,
                 software = this.Software,
@@ -87,7 +87,8 @@ namespace Ranorex.NeoLoad
                 osFriendlyName = GetOSFriendlyName(),
             };
 
-            api.ConnectToDataExchangeApi(this.DataExchangeApiUri, this.ApiKey, ctx);
+            var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
+            wrapper.ConnectToDataExchangeApi(this.DataExchangeApiUri, this.ApiKey, ctx);
         }
 
         private static string GetOSFriendlyName()

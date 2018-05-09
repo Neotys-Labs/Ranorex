@@ -16,14 +16,9 @@ using System.Threading;
 using Microsoft.Win32;
 using MyNeoloadTest.NeoLoad.config;
 using Neotys.CommonAPI.Error;
-using Neotys.DataExchangeAPI.Client;
-using Neotys.DataExchangeAPI.Model;
-using Neotys.DesignAPI.Client;
-using Neotys.DesignAPI.Model;
 using Neotys.RuntimeAPI.Client;
 using Neotys.RuntimeAPI.Model;
 using NtState = Neotys.RuntimeAPI.Model.Status;
-using DesignState = Neotys.DesignAPI.Model.Status;
 using Ranorex.Core.Testing;
 
 namespace Ranorex.NeoLoad
@@ -32,19 +27,8 @@ namespace Ranorex.NeoLoad
 	{
 		public static INeoloadApi Instance { get; private set; }
 
-		public struct NeoloadContextData
-		{
-			public string hardware;
-			public string location;
-			public string software;
-			public string script;
-			public string osFriendlyName;
-		}
-
-		private IDataExchangeAPIClient dataExchangeClient;
 		private IRuntimeAPIClient runtimeClient;
 		private ParamBuilderProvider paramBuilderProvider;
-		private Context context;
 
 		static NeoloadApi()
 		{
@@ -59,47 +43,6 @@ namespace Ranorex.NeoLoad
 		public void ConnectToRuntimeApi(string runtimeApiUrl, string apiKey)
 		{
 			this.runtimeClient = RuntimeAPIClientFactory.NewClient(runtimeApiUrl, apiKey);
-		}
-
-		public void ConnectToDataExchangeApi(string dataExchangeApiUrl, string apiKey, NeoloadContextData ctx)
-		{
-			context = CreateContext(ctx);
-			this.dataExchangeClient = DataExchangeAPIClientFactory.NewClient(dataExchangeApiUrl, context, apiKey);
-		}
-
-		private static Context CreateContext(NeoloadContextData ctx)
-		{
-			ContextBuilder cb = new ContextBuilder();
-			cb.Hardware = ctx.hardware;
-			cb.Location = ctx.location;
-			cb.Software = ctx.software;
-			cb.Script = ctx.script;
-			cb.Os = ctx.osFriendlyName;
-
-			return cb.build();
-		}
-
-		public void SendNavTiming(
-			IEnumerable<NavigationTimingWrapper.NavTiming> navtiming,
-			string transactionName,
-			string url,
-			string browser,
-			string testCase)
-		{
-			CheckDataExchangeIsConnected();
-			var entriesToSend = navtiming.Select(nt =>
-			                                     BuildEntry(
-			                                     	nt,
-			                                     	url,
-			                                     	BuildArgList(
-			                                     		testCase,
-			                                     		browser,
-			                                     		transactionName,
-			                                     		nt.Key,
-			                                     		nt.SubPath)))
-				.ToList();
-
-			this.dataExchangeClient.AddEntries(entriesToSend);
 		}
 
 		public void StartNeoLoadTest(string scenario, TimeSpan timeout, TimeSpan interval)
@@ -194,52 +137,6 @@ namespace Ranorex.NeoLoad
 					"before any NeoLoad action is invoked.", "ConnectToRuntimeApi"));
 			}
 		}
-
-		private void CheckDataExchangeIsConnected()
-		{
-			this.CheckRuntimeIsConnected();
-			if (this.dataExchangeClient == null)
-			{
-				throw new InvalidOperationException(string.Format("Not connected to NeoLoad data exchange API. This action requires such a connection. Please add a '{0}' module to your test suite that is executed before this action.", "ConnectDataExchangeApi"));
-			}
-		}
-
-
-		private static Entry BuildEntry(
-			NavigationTimingWrapper.NavTiming timing,
-			string URL,
-			IList<string> pathArgumentList)
-		{
-			EntryBuilder eb = new EntryBuilder(pathArgumentList);
-			eb.Unit = "Milliseconds";
-			eb.Value = timing.Value;
-			eb.Url = URL;
-
-			return eb.Build();
-		}
-
-		private static List<string> BuildArgList(
-			string testCase,
-			string browser,
-			string transaction,
-			string param,
-			IEnumerable<string> subPath)
-		{
-			List<string> path = CreateCommonRootPath(testCase, browser, transaction);
-			path.AddRange(subPath);
-			path.Add(param);
-
-			return path;
-		}
-
-		private static List<string> CreateCommonRootPath(string testCase, string browser, string transaction)
-		{
-			return new List<string>()
-			{
-				testCase,
-				transaction,
-			};
-		}
-
+		
 	}
 }

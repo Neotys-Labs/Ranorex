@@ -36,7 +36,7 @@ namespace Ranorex.NeoLoad
     	[UserCodeMethod]
     	public static void SendTimingValues(Ranorex.Core.Repository.RepoItemInfo domNode, string transactionName)
     	{
-    		var api = NeoloadApi.Instance;
+    		var api = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
     		var doc = domNode.CreateAdapter<WebDocument>(true);
     		var timings = NavigationTimingWrapper.ReadTimingValuesFromPage(doc);
     		api.SendNavTiming(

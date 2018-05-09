@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
@@ -19,6 +20,7 @@ using Neotys.DesignAPI.Model;
 using DesignState = Neotys.DesignAPI.Model.Status;
 using Ranorex;
 using Ranorex.Core.Testing;
+using Ranorex.NeoLoad;
 
 namespace NeoloadDesignTest
 {
@@ -34,17 +36,17 @@ namespace NeoloadDesignTest
 		
 		private static string DEFAULT_USER_PATH = "UserPath";
 		private static string TRANSACTION_TIMER_NAME = "Timer";
-        private static string OPT_RANOREX_NEOLOAD_MODE = "nl.ranorex.neoload.mode";
+		private static string OPT_RANOREX_NEOLOAD_MODE = "nl.ranorex.neoload.mode";
 
-        private static Mode _mode;
+		private static Mode _mode;
 		private static string _url;
 		private static string _apiKey;
 
 		private static bool   _proxyInUse;
 		private static string _proxySettings;
-        private static string _proxyOverride;
+		private static string _proxyOverride;
 
-        private static IDesignAPIClient _client = null;
+		private static IDesignAPIClient _client = null;
 		private IDataExchangeAPIClient _dataExchangeClient;
 		
 		private static OpenProjectParamsBuilder   _openProjectPB   = new OpenProjectParamsBuilder();
@@ -60,8 +62,8 @@ namespace NeoloadDesignTest
 		private static UpdateUserPathParamsBuilder   _updateUserPathPB   = new UpdateUserPathParamsBuilder();
 		
 		private string userPathName;
-        private bool pathExists;
-        private Context context;
+		private bool pathExists;
+		private Context context;
 		private TimerBuilder timerBuilder;
 		private string transactionName;
 		
@@ -77,12 +79,12 @@ namespace NeoloadDesignTest
 		
 		private NeoloadDesignAPIWrapper()
 		{
+			_mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
 		}
 		
 		~NeoloadDesignAPIWrapper()
 		{
-            _mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
-            unsetNeoloadProxy();
+			unsetNeoloadProxy();
 		}
 		
 		private static Context CreateContext(NeoloadContextData ctx)
@@ -108,6 +110,42 @@ namespace NeoloadDesignTest
 			}
 		}
 		
+		private static List<string> BuildArgList(
+			string testCase,
+			string browser,
+			string transaction,
+			string param,
+			IEnumerable<string> subPath)
+		{
+			List<string> path = CreateCommonRootPath(testCase, browser, transaction);
+			path.AddRange(subPath);
+			path.Add(param);
+
+			return path;
+		}
+		
+		private static List<string> CreateCommonRootPath(string testCase, string browser, string transaction)
+		{
+			return new List<string>()
+			{
+				testCase,
+				transaction,
+			};
+		}
+		
+		private static Entry BuildEntry(
+			NavigationTimingWrapper.NavTiming timing,
+			string URL,
+			IList<string> pathArgumentList)
+		{
+			EntryBuilder eb = new EntryBuilder(pathArgumentList);
+			eb.Unit = "Milliseconds";
+			eb.Value = timing.Value;
+			eb.Url = URL;
+
+			return eb.Build();
+		}
+
 		
 		private bool isProjectOpen()
 		{
@@ -130,19 +168,48 @@ namespace NeoloadDesignTest
 				return false;
 		}
 		
+		public void SendNavTiming(IEnumerable<NavigationTimingWrapper.NavTiming> navtiming,
+		                          string transactionName,
+		                          string url,
+		                          string browser,
+		                          string testCase)
+		{
+			CheckDataExchangeIsConnected();
+			var entriesToSend = navtiming.Select(nt =>
+			                                     BuildEntry(
+			                                     	nt,
+			                                     	url,
+			                                     	BuildArgList(
+			                                     		testCase,
+			                                     		browser,
+			                                     		transactionName,
+			                                     		nt.Key,
+			                                     		nt.SubPath)))
+				.ToList();
+
+			this._dataExchangeClient.AddEntries(entriesToSend);
+		}
+		
+		private void CheckDataExchangeIsConnected()
+		{
+			if (this._dataExchangeClient == null)
+			{
+				throw new InvalidOperationException(string.Format("Not connected to NeoLoad data exchange API. This action requires such a connection. Please add a '{0}' module to your test suite that is executed before this action.", "ConnectDataExchangeApi"));
+			}
+		}
 		
 		public void init(string designApiUrl, string apiKey)
 		{
-            if (_mode == Mode.NO_API)
-            {
-                return;
-            }
+			if (_mode == Mode.NO_API)
+			{
+				return;
+			}
 
-            _url = designApiUrl;
-            _apiKey = apiKey;
+			_url = designApiUrl;
+			_apiKey = apiKey;
 
-            _client = DesignAPIClientFactory.NewClient(_url, _apiKey);
-        }
+			_client = DesignAPIClientFactory.NewClient(_url, _apiKey);
+		}
 		
 		public void ConnectToDataExchangeApi(string dataExchangeApiUrl, string apiKey, NeoloadContextData ctx)
 		{
@@ -303,47 +370,47 @@ namespace NeoloadDesignTest
 		}
 
 
-        public void stopRecording(int timeout, bool frameworkParameterSearch = true, bool genericParameterSearch = true,
-                                  bool deleteExistingRecording = false, bool includeVariablesInUserpathMerge = true,
-                                  int matchingThreshold = 60, bool updateSharedContainers = false)
-        {
-            if (_mode != Mode.DESIGN)
-            {
-                return;
-            }
+		public void stopRecording(int timeout, bool frameworkParameterSearch = true, bool genericParameterSearch = true,
+		                          bool deleteExistingRecording = false, bool includeVariablesInUserpathMerge = true,
+		                          int matchingThreshold = 60, bool updateSharedContainers = false)
+		{
+			if (_mode != Mode.DESIGN)
+			{
+				return;
+			}
 
-            var status = _client.GetStatus();
-            if (status != DesignState.BUSY)
-                throw (new Exception("Error!! No recording currently running!"));
+			var status = _client.GetStatus();
+			if (status != DesignState.BUSY)
+				throw (new Exception("Error!! No recording currently running!"));
 
-            if (pathExists)
-            {
-                _updateUserPathPB.name(_startRecordingPB.VirtualUser);
+			if (pathExists)
+			{
+				_updateUserPathPB.name(_startRecordingPB.VirtualUser);
 
-                _updateUserPathPB.deleteRecording(deleteExistingRecording);
-                _updateUserPathPB.includeVariables(includeVariablesInUserpathMerge);
-                _updateUserPathPB.matchingThreshold(matchingThreshold);
-                _updateUserPathPB.updateSharedContainers(updateSharedContainers);
-                _stopRecordingPB.updateParams(_updateUserPathPB.Build());
-                Report.Log(ReportLevel.Debug, _updateUserPathPB.Build().ToString());
-            }
+				_updateUserPathPB.deleteRecording(deleteExistingRecording);
+				_updateUserPathPB.includeVariables(includeVariablesInUserpathMerge);
+				_updateUserPathPB.matchingThreshold(matchingThreshold);
+				_updateUserPathPB.updateSharedContainers(updateSharedContainers);
+				_stopRecordingPB.updateParams(_updateUserPathPB.Build());
+				Report.Log(ReportLevel.Debug, _updateUserPathPB.Build().ToString());
+			}
 
-            _stopRecordingPB.timeout(timeout);
-            _stopRecordingPB.frameworkParameterSearch(frameworkParameterSearch);
-            _stopRecordingPB.genericParameterSearch(genericParameterSearch);
+			_stopRecordingPB.timeout(timeout);
+			_stopRecordingPB.frameworkParameterSearch(frameworkParameterSearch);
+			_stopRecordingPB.genericParameterSearch(genericParameterSearch);
 
-            Report.Log(ReportLevel.Debug, _stopRecordingPB.Build().ToString());
-            try
-            {
-                _client.StopRecording(_stopRecordingPB.Build());
-            }
-            catch (Exception e)
-            {
-                Report.Log(ReportLevel.Debug, e.Message);
-            }
-        }
+			Report.Log(ReportLevel.Debug, _stopRecordingPB.Build().ToString());
+			try
+			{
+				_client.StopRecording(_stopRecordingPB.Build());
+			}
+			catch (Exception e)
+			{
+				Report.Log(ReportLevel.Debug, e.Message);
+			}
+		}
 
-        private string validateUserPathName(string userPathName)
+		private string validateUserPathName(string userPathName)
 		{
 			if (userPathName != null && !userPathName.IsEmpty())
 			{
@@ -396,9 +463,9 @@ namespace NeoloadDesignTest
 			
 			_proxyInUse = Convert.ToBoolean(registry.GetValue("ProxyEnable"));
 			_proxySettings = (string)registry.GetValue("ProxyServer");
-            _proxyOverride = (string)registry.GetValue("ProxyOverride");
+			_proxyOverride = (string)registry.GetValue("ProxyOverride");
 
-            registry.SetValue("ProxyEnable", 1);
+			registry.SetValue("ProxyEnable", 1);
 			registry.SetValue("ProxyServer", String.Format("http={0}:{1};https={0}:{1}",host,port));
 			registry.SetValue("ProxyOverride", host + ":" + port);
 			settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
@@ -418,14 +485,14 @@ namespace NeoloadDesignTest
 				{
 					registry.SetValue("ProxyEnable", _proxyInUse);
 					registry.SetValue("ProxyServer", _proxySettings);
-                    registry.SetValue("ProxyOverride", _proxyOverride);
-                }
+					registry.SetValue("ProxyOverride", _proxyOverride);
+				}
 				else
 				{
 					registry.SetValue("ProxyEnable", 0);
 					registry.SetValue("ProxyServer", "");
-                    registry.SetValue("ProxyOverride", "");
-                }
+					registry.SetValue("ProxyOverride", "");
+				}
 				settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
 				refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
 			}
@@ -446,11 +513,11 @@ namespace NeoloadDesignTest
 			}
 			else if(Mode.END_USER_EXPERIENCE == _mode)
 			{
-                if (transactionName != null)
-                {
-                    StopTransaction();
-                }
-                transactionName = name;
+				if (transactionName != null)
+				{
+					StopTransaction();
+				}
+				transactionName = name;
 				HandleTimer();
 				IList<string> timerPath = NewPath(transactionName);
 				timerPath.Add(TRANSACTION_TIMER_NAME);
@@ -503,27 +570,27 @@ namespace NeoloadDesignTest
 			return path;
 		}
 
-        public static Mode getPropertyValue(string key, Mode defaultValue)
-        {
-            string envValue = Environment.GetEnvironmentVariable(key);
-            if (envValue != null)
-            {
-                return (Mode)Enum.Parse(typeof(Mode), envValue);
-            }
+		public static Mode getPropertyValue(string key, Mode defaultValue)
+		{
+			string envValue = Environment.GetEnvironmentVariable(key);
+			if (envValue != null)
+			{
+				return (Mode)Enum.Parse(typeof(Mode), envValue);
+			}
 
-            string pattern = "-D" + Regex.Escape(key) + "=" + "(.+)";
-            foreach (string arg in Environment.GetCommandLineArgs())
-            {
-                MatchCollection matchCollection = Regex.Matches(arg, pattern);
-                if (matchCollection.Count > 0)
-                {
-                    return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value);
-                }
-            }
-            return defaultValue;
-        }
+			string pattern = "-D" + Regex.Escape(key) + "=" + "(.+)";
+			foreach (string arg in Environment.GetCommandLineArgs())
+			{
+				MatchCollection matchCollection = Regex.Matches(arg, pattern);
+				if (matchCollection.Count > 0)
+				{
+					return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value);
+				}
+			}
+			return defaultValue;
+		}
 
-    }
+	}
 	public enum Mode
 	{
 		DESIGN, END_USER_EXPERIENCE, NO_API

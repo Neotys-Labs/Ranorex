@@ -245,6 +245,18 @@
     <Compile Include="Program.cs">
       <id>dea89852-4df0-43ba-a636-4cbcd94c9ad5</id>
     </Compile>
+    <Compile Include="Record_EUE.cs">
+      <BoundTo>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</BoundTo>
+      <DependentUpon>Record_EUE.rxrec</DependentUpon>
+      <RecorderCode>true</RecorderCode>
+      <id>d86bd378-5d08-466d-b468-652c3e2ad6dd</id>
+    </Compile>
+    <Compile Include="Record_EUE.UserCode.cs">
+      <BoundTo>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</BoundTo>
+      <DependentUpon>Record_EUE.rxrec</DependentUpon>
+      <UserCode>true</UserCode>
+      <id>81ecc1e0-77a9-4687-99ca-d39d88a4de6f</id>
+    </Compile>
     <Compile Include="simple_record.cs">
       <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
       <DependentUpon>simple_record.rxrec</DependentUpon>
@@ -290,6 +302,11 @@
     </None>
     <None Include="packages.config">
       <id>11e9d116-c729-4be7-a54b-4cbd9a7fb501</id>
+    </None>
+    <None Include="Record_EUE.rxrec">
+      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
+      <id>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</id>
+      <recordtableid>eeb7f29c-a03f-4a79-9ae5-efbc21c7d889</recordtableid>
     </None>
     <None Include="simple_record.rxrec">
       <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>

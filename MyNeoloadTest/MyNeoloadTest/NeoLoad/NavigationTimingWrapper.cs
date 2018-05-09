@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Newtonsoft.Json;
 
 namespace Ranorex.NeoLoad
@@ -24,9 +25,9 @@ namespace Ranorex.NeoLoad
     /// https://www.w3.org/TR/navigation-timing-2/
     /// cbreit - 26.01.2016: still,in draft mode and not supported by all browsers
     /// </summary>
-    internal static class NavigationTimingWrapper
+    public static class NavigationTimingWrapper
     {
-        internal class NavTiming
+        public class NavTiming
         {
             private static readonly List<string> NoSubPath = new List<string>();
             public string Key { get; private set; }
