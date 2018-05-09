@@ -224,49 +224,49 @@ rxversion="8.1">
 	</testconfigurations>
 	<references>
 		<reference>
-			DllImportX
+			DllImportX.dll
 		</reference>
 		<reference>
-			Microsoft.Data.Edm
+			Microsoft.Data.Edm.dll
 		</reference>
 		<reference>
-			Microsoft.Data.OData
+			Microsoft.Data.OData.dll
 		</reference>
 		<reference>
-			Microsoft.OData.Core
+			Microsoft.OData.Core.dll
 		</reference>
 		<reference>
-			Microsoft.OData.Edm
+			Microsoft.OData.Edm.dll
 		</reference>
 		<reference>
-			Microsoft.Spatial
+			Microsoft.Spatial.dll
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks
+			Microsoft.Threading.Tasks.dll
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks.Extensions
+			Microsoft.Threading.Tasks.Extensions.Desktop.dll
 		</reference>
 		<reference>
-			Microsoft.Threading.Tasks.Extensions.Desktop
+			Microsoft.Threading.Tasks.Extensions.dll
 		</reference>
 		<reference>
-			NeotysRestCommonAPI
+			NeotysRestCommonAPI.dll
 		</reference>
 		<reference>
-			NeotysRestDataExchangeAPI
+			NeotysRestDataExchangeAPI.dll
 		</reference>
 		<reference>
-			NeotysRestDesignAPI
+			NeotysRestDesignAPI.dll
 		</reference>
 		<reference>
-			NeotysRestRuntimeAPI
+			NeotysRestRuntimeAPI.dll
 		</reference>
 		<reference>
 			Newtonsoft.Json.dll
 		</reference>
 		<reference>
-			Simple.OData.Client.Net40
+			Simple.OData.Client.Net40.dll
 		</reference>
 	</references>
 </testsuitedoc>

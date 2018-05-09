@@ -245,51 +245,27 @@
     <Compile Include="Program.cs">
       <id>dea89852-4df0-43ba-a636-4cbcd94c9ad5</id>
     </Compile>
-    <Compile Include="Recording1.cs">
-      <BoundTo>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</BoundTo>
-      <DependentUpon>Recording1.rxrec</DependentUpon>
-      <RecorderCode>true</RecorderCode>
-      <id>9f10c6ad-fb83-49dd-bbd0-2c8c17a8189b</id>
-    </Compile>
-    <Compile Include="Recording1.UserCode.cs">
-      <BoundTo>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</BoundTo>
-      <DependentUpon>Recording1.rxrec</DependentUpon>
-      <UserCode>true</UserCode>
-      <id>a81cb0b6-3f9e-4377-8bcd-3e862bc24c4b</id>
-    </Compile>
-    <Compile Include="Recording2.cs">
-      <BoundTo>cfe1db80-0d24-462b-8983-ab5eb49253b9</BoundTo>
-      <DependentUpon>Recording2.rxrec</DependentUpon>
-      <RecorderCode>true</RecorderCode>
-      <id>6a7b8e6b-fd94-4b37-bc41-ef64e54227dd</id>
-    </Compile>
-    <Compile Include="Recording2.UserCode.cs">
-      <BoundTo>cfe1db80-0d24-462b-8983-ab5eb49253b9</BoundTo>
-      <DependentUpon>Recording2.rxrec</DependentUpon>
-      <UserCode>true</UserCode>
-      <id>d1386ae2-7687-4bf2-a835-70a1682e0c9d</id>
-    </Compile>
-    <Compile Include="Recording3.cs">
+    <Compile Include="simple_record.cs">
       <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
-      <DependentUpon>Recording3.rxrec</DependentUpon>
+      <DependentUpon>simple_record.rxrec</DependentUpon>
       <RecorderCode>true</RecorderCode>
       <id>1159f156-4794-481d-9620-27f86a8014d3</id>
     </Compile>
-    <Compile Include="Recording3.UserCode.cs">
+    <Compile Include="simple_record.UserCode.cs">
       <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
-      <DependentUpon>Recording3.rxrec</DependentUpon>
+      <DependentUpon>simple_record.rxrec</DependentUpon>
       <UserCode>true</UserCode>
       <id>870ce552-1f9c-46bd-a50e-a639850e12b2</id>
     </Compile>
-    <Compile Include="Recording4.cs">
+    <Compile Include="transaction_record.cs">
       <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
-      <DependentUpon>Recording4.rxrec</DependentUpon>
+      <DependentUpon>transaction_record.rxrec</DependentUpon>
       <RecorderCode>true</RecorderCode>
       <id>5d730509-2ec2-4668-b978-636d08d88ad7</id>
     </Compile>
-    <Compile Include="Recording4.UserCode.cs">
+    <Compile Include="transaction_record.UserCode.cs">
       <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
-      <DependentUpon>Recording4.rxrec</DependentUpon>
+      <DependentUpon>transaction_record.rxrec</DependentUpon>
       <UserCode>true</UserCode>
       <id>b6ad8399-7db7-4286-8e63-dee353986943</id>
     </Compile>
@@ -315,22 +291,12 @@
     <None Include="packages.config">
       <id>11e9d116-c729-4be7-a54b-4cbd9a7fb501</id>
     </None>
-    <None Include="Recording1.rxrec">
-      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
-      <id>77dbf6c3-ee64-4c9b-ab36-2f146b02818b</id>
-      <recordtableid>7eb37bc5-3d72-4d3c-982a-d00ae222d57e</recordtableid>
-    </None>
-    <None Include="Recording2.rxrec">
-      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
-      <id>cfe1db80-0d24-462b-8983-ab5eb49253b9</id>
-      <recordtableid>44bb48f2-64a1-486f-b66d-d0347cd473c8</recordtableid>
-    </None>
-    <None Include="Recording3.rxrec">
+    <None Include="simple_record.rxrec">
       <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
       <id>e4aacafe-e832-41a7-a855-50547806b735</id>
       <recordtableid>a645a157-ef64-4983-8fa1-d7e145fba24b</recordtableid>
     </None>
-    <None Include="Recording4.rxrec">
+    <None Include="transaction_record.rxrec">
       <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
       <id>3e7ab485-896b-4b75-90a2-88dc552e9ab9</id>
       <recordtableid>c761e308-8719-4555-8c3c-df21817a2bb1</recordtableid>
@@ -346,9 +312,7 @@
       <id>81d44fc2-dd93-45b8-ba60-93ffd39d5e97</id>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NeoLoad\Proxy\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(RanorexTargetsPath)" Condition="Exists('$(RanorexTargetsPath)')" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
