@@ -7,15 +7,6 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Drawing;
-using System.Threading;
-using WinForms = System.Windows.Forms;
-
-using Ranorex;
-using Ranorex.Core;
 using Ranorex.Core.Testing;
 
 namespace NeoloadDesignTest.lib
@@ -27,9 +18,6 @@ namespace NeoloadDesignTest.lib
   public class NL_ConnectToDesignAPI : ITestModule
   {
     
-    [TestVariable("acdf946c-cd96-4a71-8bb7-90649f69b87b")]
-    public Mode mode {get; set;}
-   
     [TestVariable("2cb2bf6d-616a-4fd3-afc5-4a301fb94338")]
     public string DesignApiUri{get; set;}
     
@@ -60,7 +48,7 @@ namespace NeoloadDesignTest.lib
       }
     	
       var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-      wrapper.init(mode, DesignApiUri, ApiKey);
+      wrapper.init(DesignApiUri, ApiKey);
     }
   }
 }

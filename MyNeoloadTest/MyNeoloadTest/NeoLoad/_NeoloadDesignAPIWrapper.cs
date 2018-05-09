@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using Neotys.DataExchangeAPI.Client;
 using Neotys.DataExchangeAPI.Model;
@@ -33,15 +34,17 @@ namespace NeoloadDesignTest
 		
 		private static string DEFAULT_USER_PATH = "UserPath";
 		private static string TRANSACTION_TIMER_NAME = "Timer";
-		
-		private static Mode _mode;
+        private static string OPT_RANOREX_NEOLOAD_MODE = "nl.ranorex.neoload.mode";
+
+        private static Mode _mode;
 		private static string _url;
 		private static string _apiKey;
 
 		private static bool   _proxyInUse;
 		private static string _proxySettings;
-		
-		private static IDesignAPIClient _client = null;
+        private static string _proxyOverride;
+
+        private static IDesignAPIClient _client = null;
 		private IDataExchangeAPIClient _dataExchangeClient;
 		
 		private static OpenProjectParamsBuilder   _openProjectPB   = new OpenProjectParamsBuilder();
@@ -57,7 +60,8 @@ namespace NeoloadDesignTest
 		private static UpdateUserPathParamsBuilder   _updateUserPathPB   = new UpdateUserPathParamsBuilder();
 		
 		private string userPathName;
-		private Context context;
+        private bool pathExists;
+        private Context context;
 		private TimerBuilder timerBuilder;
 		private string transactionName;
 		
@@ -77,7 +81,8 @@ namespace NeoloadDesignTest
 		
 		~NeoloadDesignAPIWrapper()
 		{
-			unsetNeoloadProxy();
+            _mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
+            unsetNeoloadProxy();
 		}
 		
 		private static Context CreateContext(NeoloadContextData ctx)
@@ -126,20 +131,18 @@ namespace NeoloadDesignTest
 		}
 		
 		
-		public void init(Mode mode, string designApiUrl, string apiKey)
+		public void init(string designApiUrl, string apiKey)
 		{
+            if (_mode == Mode.NO_API)
+            {
+                return;
+            }
 
-			_mode = mode;
-			if (_mode == Mode.NO_API)
-			{
-				return;
-			}
-			
-			_url = designApiUrl;
-			_apiKey = apiKey;
-			
-			_client = DesignAPIClientFactory.NewClient(_url, _apiKey);
-		}
+            _url = designApiUrl;
+            _apiKey = apiKey;
+
+            _client = DesignAPIClientFactory.NewClient(_url, _apiKey);
+        }
 		
 		public void ConnectToDataExchangeApi(string dataExchangeApiUrl, string apiKey, NeoloadContextData ctx)
 		{
@@ -264,7 +267,7 @@ namespace NeoloadDesignTest
 			this.userPathName = validateUserPathName(userPathName);
 			
 			_containsUserPathPB.name(userPathName);
-			bool pathExists = _client.ContainsUserPath(_containsUserPathPB.Build());
+			pathExists = _client.ContainsUserPath(_containsUserPathPB.Build());
 			if(!updateUserPath && pathExists)
 			{
 				string msg = String.Format("Error!! UserPath {0} already exists and update path is disabled!", userPathName);
@@ -299,44 +302,48 @@ namespace NeoloadDesignTest
 			_client.SaveProject();
 		}
 
-		
-		public void stopRecording(int timeout, bool frameworkParameterSearch = true, bool genericParameterSearch = true,
-		                          bool deleteExistingRecording = false, bool includeVariablesInUserpathMerge = true,
-		                          int matchingThreshold = 60, bool updateSharedContainers = false)
-		{
-			if (_mode != Mode.DESIGN)
-			{
-				return;
-			}
-			
-			var status = _client.GetStatus();
-			if(status != DesignState.BUSY)
-				throw(new Exception("Error!! No recording currently running!"));
-			
-			if (userPathExist) {
-				_updateUserPathPB.name( _startRecordingPB.VirtualUser );
-				
-				_updateUserPathPB.deleteRecording(deleteExistingRecording);
-				_updateUserPathPB.includeVariables(includeVariablesInUserpathMerge);
-				_updateUserPathPB.matchingThreshold(matchingThreshold);
-				_updateUserPathPB.updateSharedContainers(updateSharedContainers);
-				_stopRecordingPB.updateParams(_updateUserPathPB.Build());
-				Report.Log(ReportLevel.Debug, _updateUserPathPB.Build().ToString());
-			}
-			
-			_stopRecordingPB.timeout(timeout);
-			_stopRecordingPB.frameworkParameterSearch(frameworkParameterSearch);
-			_stopRecordingPB.genericParameterSearch(genericParameterSearch);
-			
-			Report.Log(ReportLevel.Debug, _stopRecordingPB.Build().ToString());
-			try {
-				_client.StopRecording(_stopRecordingPB.Build());
-			} catch (Exception e) {
-				Report.Log(ReportLevel.Debug, e.Message);
-			}
-		}
-		
-		private string validateUserPathName(string userPathName)
+
+        public void stopRecording(int timeout, bool frameworkParameterSearch = true, bool genericParameterSearch = true,
+                                  bool deleteExistingRecording = false, bool includeVariablesInUserpathMerge = true,
+                                  int matchingThreshold = 60, bool updateSharedContainers = false)
+        {
+            if (_mode != Mode.DESIGN)
+            {
+                return;
+            }
+
+            var status = _client.GetStatus();
+            if (status != DesignState.BUSY)
+                throw (new Exception("Error!! No recording currently running!"));
+
+            if (pathExists)
+            {
+                _updateUserPathPB.name(_startRecordingPB.VirtualUser);
+
+                _updateUserPathPB.deleteRecording(deleteExistingRecording);
+                _updateUserPathPB.includeVariables(includeVariablesInUserpathMerge);
+                _updateUserPathPB.matchingThreshold(matchingThreshold);
+                _updateUserPathPB.updateSharedContainers(updateSharedContainers);
+                _stopRecordingPB.updateParams(_updateUserPathPB.Build());
+                Report.Log(ReportLevel.Debug, _updateUserPathPB.Build().ToString());
+            }
+
+            _stopRecordingPB.timeout(timeout);
+            _stopRecordingPB.frameworkParameterSearch(frameworkParameterSearch);
+            _stopRecordingPB.genericParameterSearch(genericParameterSearch);
+
+            Report.Log(ReportLevel.Debug, _stopRecordingPB.Build().ToString());
+            try
+            {
+                _client.StopRecording(_stopRecordingPB.Build());
+            }
+            catch (Exception e)
+            {
+                Report.Log(ReportLevel.Debug, e.Message);
+            }
+        }
+
+        private string validateUserPathName(string userPathName)
 		{
 			if (userPathName != null && !userPathName.IsEmpty())
 			{
@@ -389,8 +396,9 @@ namespace NeoloadDesignTest
 			
 			_proxyInUse = Convert.ToBoolean(registry.GetValue("ProxyEnable"));
 			_proxySettings = (string)registry.GetValue("ProxyServer");
-			
-			registry.SetValue("ProxyEnable", 1);
+            _proxyOverride = (string)registry.GetValue("ProxyOverride");
+
+            registry.SetValue("ProxyEnable", 1);
 			registry.SetValue("ProxyServer", String.Format("http={0}:{1};https={0}:{1}",host,port));
 			registry.SetValue("ProxyOverride", host + ":" + port);
 			settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
@@ -410,12 +418,14 @@ namespace NeoloadDesignTest
 				{
 					registry.SetValue("ProxyEnable", _proxyInUse);
 					registry.SetValue("ProxyServer", _proxySettings);
-				}
+                    registry.SetValue("ProxyOverride", _proxyOverride);
+                }
 				else
 				{
 					registry.SetValue("ProxyEnable", 0);
 					registry.SetValue("ProxyServer", "");
-				}
+                    registry.SetValue("ProxyOverride", "");
+                }
 				settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
 				refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
 			}
@@ -436,7 +446,11 @@ namespace NeoloadDesignTest
 			}
 			else if(Mode.END_USER_EXPERIENCE == _mode)
 			{
-				transactionName = name;
+                if (transactionName != null)
+                {
+                    StopTransaction();
+                }
+                transactionName = name;
 				HandleTimer();
 				IList<string> timerPath = NewPath(transactionName);
 				timerPath.Add(TRANSACTION_TIMER_NAME);
@@ -488,8 +502,28 @@ namespace NeoloadDesignTest
 			
 			return path;
 		}
-		
-	}
+
+        public static Mode getPropertyValue(string key, Mode defaultValue)
+        {
+            string envValue = Environment.GetEnvironmentVariable(key);
+            if (envValue != null)
+            {
+                return (Mode)Enum.Parse(typeof(Mode), envValue);
+            }
+
+            string pattern = "-D" + Regex.Escape(key) + "=" + "(.+)";
+            foreach (string arg in Environment.GetCommandLineArgs())
+            {
+                MatchCollection matchCollection = Regex.Matches(arg, pattern);
+                if (matchCollection.Count > 0)
+                {
+                    return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value);
+                }
+            }
+            return defaultValue;
+        }
+
+    }
 	public enum Mode
 	{
 		DESIGN, END_USER_EXPERIENCE, NO_API

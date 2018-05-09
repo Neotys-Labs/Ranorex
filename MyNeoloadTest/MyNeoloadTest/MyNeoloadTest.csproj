@@ -9,7 +9,7 @@
     <RootNamespace>MyNeoloadTest</RootNamespace>
     <AssemblyName>MyNeoloadTest</AssemblyName>
     <RanorexVersion>8.1</RanorexVersion>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <RanorexTargetsPath>$(MSBuildProgramFiles32)\MSBuild\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
     <projectdefaultrepository>65cc9a31-65f4-4598-914a-687e10380aa4</projectdefaultrepository>
   </PropertyGroup>
@@ -347,15 +347,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NeoLoad\config">
-      <id>8b4156e4-f89c-4f72-afc0-43ea2503de0c</id>
-    </Folder>
-    <Folder Include="NeoLoad\Modules\Design">
-      <id>d6381c6c-a6e9-4b67-b98f-1d4b0550c6ee</id>
-    </Folder>
-    <Folder Include="NeoLoad\Proxy">
-      <id>74959c75-46b6-431c-be7f-94025ad1f002</id>
-    </Folder>
+    <Folder Include="NeoLoad\Proxy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(RanorexTargetsPath)" Condition="Exists('$(RanorexTargetsPath)')" />

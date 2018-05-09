@@ -20,40 +20,40 @@ using Ranorex.Core.Testing;
 
 namespace NeoloadDesignTest.NeoloadDesignLib
 {
-  /// <summary>
-  /// Description of StopNeoloadRecording.
-  /// </summary>
-  [TestModule("AFD2CC52-0F56-4372-885C-EC80FB8B19A8", ModuleType.UserCode, 1)]
-  public class NL_StopRecording : ITestModule
-  {
-    
-    string _timeout = "";
-    [TestVariable("142819e4-fbaa-4a23-a9f5-ffda8e7b6048")]
-    public string timeout
-    {
-      get { return _timeout; }
-      set { _timeout = value; }
-    }
-        
     /// <summary>
-    /// Constructs a new instance.
+    /// Description of StopNeoloadRecording.
     /// </summary>
-    public NL_StopRecording()
+    [TestModule("AFD2CC52-0F56-4372-885C-EC80FB8B19A8", ModuleType.UserCode, 1)]
+    public class NL_StopRecording : ITestModule
     {
-        // Do not delete - a parameterless constructor is required!
-    }
 
-    /// <summary>
-    /// Performs the playback of actions in this module.
-    /// </summary>
-    /// <remarks>You should not call this method directly, instead pass the module
-    /// instance to the <see cref="TestModuleRunner.Run(ITestModule)"/> method
-    /// that will in turn invoke this method.</remarks>
-    void ITestModule.Run()
-    {
-      var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-      wrapper.stopRecording(Convert.ToInt32(timeout));
+        string _timeout = "";
+        [TestVariable("142819e4-fbaa-4a23-a9f5-ffda8e7b6048")]
+        public string timeout
+        {
+            get { return _timeout; }
+            set { _timeout = value; }
+        }
+
+        /// <summary>
+        /// Constructs a new instance.
+        /// </summary>
+        public NL_StopRecording()
+        {
+            // Do not delete - a parameterless constructor is required!
+        }
+
+        /// <summary>
+        /// Performs the playback of actions in this module.
+        /// </summary>
+        /// <remarks>You should not call this method directly, instead pass the module
+        /// instance to the <see cref="TestModuleRunner.Run(ITestModule)"/> method
+        /// that will in turn invoke this method.</remarks>
+        void ITestModule.Run()
+        {
+            var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
+            wrapper.stopRecording(Convert.ToInt32(timeout));
+        }
     }
-  }
 }
 
