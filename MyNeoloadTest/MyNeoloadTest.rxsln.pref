@@ -9,6 +9,6 @@
       <string>NeoLoad\Modules</string>
     </ArrayOfString>
   </SerializedValue>
-  <ProjectBrowserState value="[Solution MyNeoloadTest[MyNeoloadTest[NeoLoad[Modules[]]]]]&#xD;&#xA;Solution MyNeoloadTest\MyNeoloadTest\MyNeoloadTest.rxtst&#xD;&#xA;Solution MyNeoloadTest\MyNeoloadTest\NeoLoad\Modules\NL_ConnectToDesignAPI.cs" />
+  <ProjectBrowserState value="[Solution MyNeoloadTest[MyNeoloadTest[NeoLoad[Modules[]]]]]&#xD;&#xA;Solution MyNeoloadTest\MyNeoloadTest\MyNeoloadTest.rxtst&#xD;&#xA;Solution MyNeoloadTest\MyNeoloadTest\NeoLoad\Modules\NL_StartRecording_Extended.cs" />
   <StartupProject value="{638F4593-2836-4F59-A74A-4F5522FF2D01}" />
 </Properties>

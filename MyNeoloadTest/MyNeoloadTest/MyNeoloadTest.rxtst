@@ -1144,7 +1144,7 @@ rxversion="8.1">
 	<datasources>
 		<DataSource
 		id="a8c63d85-9878-4155-8bd2-9747bb62ab90"
-		lastknownrowcount="2"
+		lastknownrowcount="0"
 		name="NewConnector"
 		type="Ranorex.Core.Data.SimpleDataConnector">
 			<lastknowncolumns>
@@ -1159,15 +1159,6 @@ rxversion="8.1">
 					<th>
 						Mode
 					</th>
-				</tr>
-				<tr>
-					<td>
-						No_API
-					</td>
-				</tr>
-				<tr>
-					<td>
-					</td>
 				</tr>
 			</table>
 		</DataSource>
