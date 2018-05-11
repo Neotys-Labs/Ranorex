@@ -81,6 +81,10 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 			set { _isAdobeRTMPProtocol = value; }
 		}
 		
+		[TestVariable("f5b2d30e-846a-475b-b796-7e51190429f1")]
+        public string addressToExclude { get; set; }
+		
+		
 		/// <summary>
 		/// Constructs a new instance.
 		/// </summary>
@@ -112,7 +116,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 
 				var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
 				wrapper.startRecording(userPath, Convert.ToBoolean(updateUserPath),timeout, interval, userAgentString,
-				                       Convert.ToBoolean(isWebSocketProtocol), Convert.ToBoolean(isHttp2Protocol), Convert.ToBoolean(isAdobeRTMPProtocol));
+				                       Convert.ToBoolean(isWebSocketProtocol), Convert.ToBoolean(isHttp2Protocol), Convert.ToBoolean(isAdobeRTMPProtocol), addressToExclude);
 			}
 				catch (FormatException ex)
 				{

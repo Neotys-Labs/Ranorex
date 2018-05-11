@@ -323,7 +323,7 @@ namespace NeoloadDesignTest
 		bool settingsReturn, refreshReturn;
 		
 		public void startRecording(string userPathName, bool updateUserPath, TimeSpan timeout, TimeSpan interval, string userAgent = "",
-		                           bool isWebSocketProtocol = false, bool isHttp2Protocol = false, bool isAdobeRTMPProtocol = false)
+		                           bool isWebSocketProtocol = false, bool isHttp2Protocol = false, bool isAdobeRTMPProtocol = false, string addressToExclude = "")
 		{
 			if (_mode != Mode.DESIGN)
 			{
@@ -364,11 +364,11 @@ namespace NeoloadDesignTest
 					case DesignState.NO_PROJECT: throw new InvalidOperationException("Failed to start test because no Project is loaded in NeoLoad.");
 				default:
 					this.WaitForNeoloadState(DesignState.READY, timeout, interval);
+					setNeoloadProxy(getProxyHost(), getProxyPort(), addressToExclude);
 					_client.StartRecording(_startRecordingPB.Build());
 					break;
 			}
-			setNeoloadProxy(getProxyHost(), getProxyPort());
-			_client.SaveProject();
+			
 		}
 
 
@@ -455,7 +455,7 @@ namespace NeoloadDesignTest
 			return false;
 		}
 		
-		private void setNeoloadProxy(string host, int port)
+		private void setNeoloadProxy(string host, int port, string excluded)
 		{
 			if(Mode.NO_API == _mode){
 				return;
@@ -469,7 +469,16 @@ namespace NeoloadDesignTest
 
 			registry.SetValue("ProxyEnable", 1);
 			registry.SetValue("ProxyServer", String.Format("http={0}:{1};https={0}:{1}",host,port));
-			registry.SetValue("ProxyOverride", host + ":" + getApiPort());
+			string proxExclusion = host + ":" + getApiPort();
+			if(!String.IsNullOrEmpty(excluded))
+			{
+				excluded = excluded + ";"+ proxExclusion;
+			}
+			else
+			{
+				excluded = proxExclusion;
+			}
+			registry.SetValue("ProxyOverride", excluded);
 			settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
 			refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
 		}

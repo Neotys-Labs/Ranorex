@@ -29,7 +29,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 
         string _timeout = "";
         [TestVariable("142819e4-fbaa-4a23-a9f5-ffda8e7b6048")]
-        public string timeout
+        public string nl_timeout
         {
             get { return _timeout; }
             set { _timeout = value; }
@@ -52,7 +52,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
         void ITestModule.Run()
         {
             var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-            wrapper.stopRecording(Convert.ToInt32(timeout));
+            wrapper.stopRecording(Convert.ToInt32(nl_timeout));
         }
     }
 }

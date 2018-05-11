@@ -98,48 +98,30 @@ rxversion="8.1">
 			type="UserCode">
 			</testmodule>
 			<testmodule
+			id="140c3d16-d935-4d0a-8e06-406c20f2efe7"
+			name="NL_CloseProject"
+			ref="542010d5-9d0d-46df-91d9-ceeccafbe9f8"
+			type="UserCode">
+				<databinding>
+					<var
+					dataname="saveProject"
+					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
+					variableid="c8ab3ec1-06dd-40dd-84dd-56856a129743"
+					variablename="saveProject">
+					</var>
+					<var
+					dataname="forceStop"
+					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
+					variableid="ae358bd4-2ea5-4153-9beb-fe1ad77c27e3"
+					variablename="forceStop">
+					</var>
+				</databinding>
+			</testmodule>
+			<testmodule
 			id="19d7cc96-7ef8-4fde-996b-f5e3e90c663b"
 			name="NL_CloseProject"
 			ref="542010d5-9d0d-46df-91d9-ceeccafbe9f8"
 			type="UserCode">
-			</testmodule>
-			<testmodule
-			id="24b73d95-a210-45f5-a7c1-9de5d0547415"
-			name="NL_StartRecording"
-			ref="c5b1b0ea-ffaa-4ec8-b37b-472b73f45291"
-			type="UserCode">
-				<databinding>
-					<var
-					dataname="timeout"
-					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
-					variableid="7e6aab81-ca2f-4084-a2b2-c0b8792122a1"
-					variablename="Timeout">
-					</var>
-					<var
-					dataname="interval"
-					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
-					variableid="29b0eb4d-d82e-4dda-8abb-355734b346d2"
-					variablename="Interval">
-					</var>
-					<var
-					dataname="userPath"
-					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
-					variableid="216b4936-592f-40c0-8c8b-6fe68fce74bb"
-					variablename="userPath">
-					</var>
-					<var
-					dataname="updateUserPath"
-					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
-					variableid="8a8f3b2c-1b8e-458b-b5aa-a91e0042e99a"
-					variablename="updateUserPath">
-					</var>
-					<var
-					dataname="userAgentString"
-					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
-					variableid="ecfc6410-9ba8-4352-85be-b370b0391967"
-					variablename="userAgentString">
-					</var>
-				</databinding>
 			</testmodule>
 			<testmodule
 			id="27b715b3-3ba2-4878-b316-3d48cae71415"
@@ -192,10 +174,10 @@ rxversion="8.1">
 			type="UserCode">
 				<databinding>
 					<var
-					dataname="Timeout"
+					dataname="nl_timeout"
 					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
 					variableid="142819e4-fbaa-4a23-a9f5-ffda8e7b6048"
-					variablename="timeout">
+					variablename="nl_timeout">
 					</var>
 				</databinding>
 			</testmodule>
@@ -227,7 +209,7 @@ rxversion="8.1">
 					dataname="Timeout"
 					datasourceid="012d7b92-53e0-4f24-9bc3-46790f9dbdfe"
 					variableid="142819e4-fbaa-4a23-a9f5-ffda8e7b6048"
-					variablename="timeout">
+					variablename="nl_timeout">
 					</var>
 				</databinding>
 			</testmodule>
@@ -365,11 +347,11 @@ rxversion="8.1">
 					</param>
 					<param
 					name="ApiKey"
-					value="9a11d9c5-21c3-4b25-b4e0-b0988f2d0070">
+					value="">
 					</param>
 					<param
 					name="projectName"
-					value="test_ranorex.nlp">
+					value="test_ranorex2">
 					</param>
 					<param
 					name="directoryPath"
@@ -377,11 +359,11 @@ rxversion="8.1">
 					</param>
 					<param
 					name="overwriteExisting"
-					value="">
+					value="true">
 					</param>
 					<param
 					name="userPath"
-					value="">
+					value="test">
 					</param>
 					<param
 					name="Interval"
@@ -393,11 +375,23 @@ rxversion="8.1">
 					</param>
 					<param
 					name="updateUserPath"
-					value="">
+					value="false">
 					</param>
 					<param
 					name="userAgentString"
 					value="">
+					</param>
+					<param
+					name="saveProject"
+					value="true">
+					</param>
+					<param
+					name="forceStop"
+					value="true">
+					</param>
+					<param
+					name="nl_timeout"
+					value="60">
 					</param>
 				</parameters>
 			</testcase>
@@ -490,6 +484,22 @@ rxversion="8.1">
 					<param
 					name="forceStop"
 					value="false">
+					</param>
+					<param
+					name="isWebSocketProtocol"
+					value="true">
+					</param>
+					<param
+					name="isHttp2Protocol"
+					value="false">
+					</param>
+					<param
+					name="isAdobeRTMPProtocol"
+					value="false">
+					</param>
+					<param
+					name="addressToExclude"
+					value="mail.google.com:443">
 					</param>
 				</parameters>
 			</testcase>
@@ -599,6 +609,20 @@ rxversion="8.1">
 			name="NL_SaveProject"
 			ref="23d296c2-d87d-4f67-ace0-652bdf3f4cff"
 			type="UserCode">
+				<databinding>
+					<var
+					dataname="Interval"
+					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
+					variableid="47b82b06-3aa6-47d2-93e5-f7ede1d50a6c"
+					variablename="interval">
+					</var>
+					<var
+					dataname="Timeout"
+					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
+					variableid="8c5ec291-b9b3-42c1-98c9-1f51ed6cff13"
+					variablename="timeout">
+					</var>
+				</databinding>
 			</testmodule>
 			<testmodule
 			id="aa6d5c3c-7ea8-4d3c-a9ef-d7dffd830334"
@@ -651,6 +675,68 @@ rxversion="8.1">
 			type="UserCode">
 			</testmodule>
 			<testmodule
+			id="bd0e2316-38b4-40a4-9360-fe36c0ab8fb2"
+			name="NL_StartRecording_Extended"
+			ref="0ca7a37e-2c42-41f3-989c-0f5bc0e014bb"
+			type="UserCode">
+				<databinding>
+					<var
+					dataname="timeout"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="7e6aab81-ca2f-4084-a2b2-c0b8792122a1"
+					variablename="Timeout">
+					</var>
+					<var
+					dataname="interval"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="29b0eb4d-d82e-4dda-8abb-355734b346d2"
+					variablename="Interval">
+					</var>
+					<var
+					dataname="userPath"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="216b4936-592f-40c0-7a8b-6fe68fce74bb"
+					variablename="userPath">
+					</var>
+					<var
+					dataname="updateUserPath"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="8a8f3b2c-1b8e-458b-b5bb-a91e0042e99a"
+					variablename="updateUserPath">
+					</var>
+					<var
+					dataname="userAgentString"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="ecfc6410-9ba8-4352-bbbe-b370b0391967"
+					variablename="userAgentString">
+					</var>
+					<var
+					dataname="isWebSocketProtocol"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="46be8c80-6db0-45c0-9b1e-a305609d5b98"
+					variablename="isWebSocketProtocol">
+					</var>
+					<var
+					dataname="isHttp2Protocol"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="4ed89ec7-53ba-49e0-8e50-fd1de62f87dd"
+					variablename="isHttp2Protocol">
+					</var>
+					<var
+					dataname="isAdobeRTMPProtocol"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="cf624e43-33fa-4287-b53d-12b1bca514f4"
+					variablename="isAdobeRTMPProtocol">
+					</var>
+					<var
+					dataname="addressToExclude"
+					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
+					variableid="f5b2d30e-846a-475b-b796-7e51190429f1"
+					variablename="addressToExclude">
+					</var>
+				</databinding>
+			</testmodule>
+			<testmodule
 			id="be2deaf0-751e-4c21-b340-712b38ea8920"
 			name="NL_ConnectToDesignAPI"
 			ref="ddb5d95f-5258-4e13-8e97-2d8ed0d73741"
@@ -686,7 +772,7 @@ rxversion="8.1">
 					dataname="timeout2"
 					datasourceid="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
 					variableid="142819e4-fbaa-4a23-a9f5-ffda8e7b6048"
-					variablename="timeout">
+					variablename="nl_timeout">
 					</var>
 				</databinding>
 			</testmodule>
@@ -832,8 +918,8 @@ rxversion="8.1">
 						name="NL_OpenProject">
 						</testmodule>
 						<testmodule
-						id="24b73d95-a210-45f5-a7c1-9de5d0547415"
-						name="NL_StartRecording">
+						id="bd0e2316-38b4-40a4-9360-fe36c0ab8fb2"
+						name="NL_StartRecording_Extended">
 						</testmodule>
 						<testmodule
 						id="34393997-09c3-4718-854a-5243bb724fbf"
@@ -854,6 +940,10 @@ rxversion="8.1">
 						<testmodule
 						id="05b472f1-eade-4d44-a1f1-a649411b23fd"
 						name="NL_ConnectToDesignAPI">
+						</testmodule>
+						<testmodule
+						id="140c3d16-d935-4d0a-8e06-406c20f2efe7"
+						name="NL_CloseProject">
 						</testmodule>
 						<testmodule
 						id="0e7d1ff6-26b7-4b6d-8f23-8f68eb6bd6d0"
@@ -1051,7 +1141,7 @@ rxversion="8.1">
 		<testconfiguration
 		name="TestRun">
 			<testcontainer
-			id="8f9e18da-d48f-4e13-acb1-f60c6af30a2b">
+			id="8bc36ffa-e4ce-4300-a62d-6086ae191aff">
 			</testcontainer>
 			<testcontainer
 			id="a0dc4f72-605a-4a97-90d6-0ffee168b530">

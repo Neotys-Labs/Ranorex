@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Ranorex.Core.Testing;
 
@@ -48,7 +49,6 @@ namespace NeoloadDesignTest.NeoloadDesignLib
             get { return _userAgentString; }
             set { _userAgentString = value; }
         }
-
 
         /// <summary>
         /// Constructs a new instance.
