@@ -200,12 +200,6 @@
     <Compile Include="NeoLoad\Modules\NL_CreateProject.cs">
       <id>24ccad7f-b0f0-4845-9eff-e11b9049898f</id>
     </Compile>
-    <Compile Include="NeoLoad\Modules\Design\StartNeoloadRecording_Extended.cs">
-      <id>2159d413-9831-441b-a4eb-e35875c7cef0</id>
-    </Compile>
-    <Compile Include="NeoLoad\Modules\Design\StopNeoloadRecording_Extended.cs">
-      <id>3b9b20ac-3a5d-44fb-8abb-ee1839bae981</id>
-    </Compile>
     <Compile Include="NeoLoad\Modules\NL_ConnectToDesignAPI.cs">
       <id>08be3fd7-84f0-46fa-b717-f368e7eb416c</id>
     </Compile>
@@ -229,6 +223,12 @@
     </Compile>
     <Compile Include="NeoLoad\Modules\NL_StopTest.cs">
       <id>ca2fdcca-790f-459a-aa3e-9d47805df6dd</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\NL_StartRecording_Extended.cs">
+      <id>2159d413-9831-441b-a4eb-e35875c7cef0</id>
+    </Compile>
+    <Compile Include="NeoLoad\Modules\NL_StopRecording_Extended.cs">
+      <id>3b9b20ac-3a5d-44fb-8abb-ee1839bae981</id>
     </Compile>
     <Compile Include="NeoLoad\NavigationTimingWrapper.cs">
       <id>5cd93495-da75-4728-8868-cc2bb565cdd0</id>

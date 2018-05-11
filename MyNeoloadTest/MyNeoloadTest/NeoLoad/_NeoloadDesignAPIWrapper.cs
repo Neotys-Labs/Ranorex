@@ -274,7 +274,7 @@ namespace NeoloadDesignTest
 			}
 			
 			if(isProjectOpen())
-				throw(new Exception("Error!! Another project is already open. Close it to open this pojetct:" + filePath));
+				throw(new Exception("Error!! Another project is already open. Close it to open this poject:" + filePath));
 			
 			
 			_openProjectPB.filePath(filePath);
@@ -282,17 +282,22 @@ namespace NeoloadDesignTest
 		}
 		
 		
-		public void saveNeoloadProject()
+		public void saveNeoloadProject(TimeSpan timeout, TimeSpan interval)
 		{
 			if (_mode == Mode.NO_API)
 			{
 				return;
 			}
 			
-			if(!isNeoloadReady())
-				throw(new Exception("Error!! Can't save project. Neoload not ready yet!"));
-			
-			_client.SaveProject();
+			var curState = _client.GetStatus();
+			switch (curState)
+			{
+					case DesignState.NO_PROJECT: throw new InvalidOperationException("Failed to save test because no Project is loaded in NeoLoad.");
+				default:
+					this.WaitForNeoloadState(DesignState.READY, timeout, interval);
+					_client.SaveProject();
+					break;
+			}
 		}
 		
 		
@@ -304,14 +309,11 @@ namespace NeoloadDesignTest
 			}
 			
 			var status = _client.GetStatus();
-			if(status == DesignState.NO_PROJECT)
-				throw(new Exception("Error!! Can't close project. No projetc opened!"));
-			
-			
-			_closeProjectPB.save(saveProject);
-			_closeProjectPB.forceStop(forceStop);
-			
-			_client.CloseProject(_closeProjectPB.Build());
+			if(status != DesignState.NO_PROJECT){
+				_closeProjectPB.save(saveProject);
+				_closeProjectPB.forceStop(forceStop);
+				_client.CloseProject(_closeProjectPB.Build());
+			}
 		}
 		
 		[DllImport("wininet.dll")]
@@ -329,7 +331,7 @@ namespace NeoloadDesignTest
 			}
 			
 			if(!isNeoloadReady())
-				throw(new Exception("Error!! Can't start recording. Neoload is not ready yet. Projetc needs to be open!"));
+				throw(new Exception("Error!! Can't start recording. Neoload is not ready yet."));
 			
 			this.userPathName = validateUserPathName(userPathName);
 			
@@ -361,7 +363,7 @@ namespace NeoloadDesignTest
 			{
 					case DesignState.NO_PROJECT: throw new InvalidOperationException("Failed to start test because no Project is loaded in NeoLoad.");
 				default:
-					this.WaitForNeoloadDesignState(DesignState.READY, timeout, interval);
+					this.WaitForNeoloadState(DesignState.READY, timeout, interval);
 					_client.StartRecording(_startRecordingPB.Build());
 					break;
 			}
@@ -430,7 +432,7 @@ namespace NeoloadDesignTest
 			}
 		}
 		
-		private void WaitForNeoloadDesignState(DesignState state, TimeSpan timeout, TimeSpan interval)
+		private void WaitForNeoloadState(DesignState state, TimeSpan timeout, TimeSpan interval)
 		{
 			if (!RetryUntil(() => _client.GetStatus() == state, timeout, interval))
 			{
@@ -467,7 +469,7 @@ namespace NeoloadDesignTest
 
 			registry.SetValue("ProxyEnable", 1);
 			registry.SetValue("ProxyServer", String.Format("http={0}:{1};https={0}:{1}",host,port));
-			registry.SetValue("ProxyOverride", host + ":" + port);
+			registry.SetValue("ProxyOverride", host + ":" + getApiPort());
 			settingsReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_SETTINGS_CHANGED, IntPtr.Zero, 0);
 			refreshReturn = InternetSetOption(IntPtr.Zero, INTERNET_OPTION_REFRESH, IntPtr.Zero, 0);
 		}
@@ -500,6 +502,22 @@ namespace NeoloadDesignTest
 				throw e;
 			}
 		}
+		
+		private static int getApiPort()
+		{
+			Uri uri;
+			try
+			{
+				uri = new Uri(_url);
+				return uri.Port;
+			}
+			catch (SystemException ex)
+			{
+				Console.WriteLine(ex.ToString());
+				return 7400;
+			}
+	}
+ 
 		
 		[UserCodeMethod]
 		public void StartTransaction(string name)

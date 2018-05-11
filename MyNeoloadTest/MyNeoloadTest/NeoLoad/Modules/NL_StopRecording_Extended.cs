@@ -24,7 +24,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
   /// Description of StopNeoloadRecording_Extended.
   /// </summary>
   [TestModule("7EF44A78-0C81-44FA-9E48-E000E4EA8D3E", ModuleType.UserCode, 1)]
-  public class StopNeoloadRecording_Extended : ITestModule
+  public class NL_StopRecording_Extended : ITestModule
   {
     
     string _timeout = "";
@@ -86,7 +86,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
     /// <summary>
     /// Constructs a new instance.
     /// </summary>
-    public StopNeoloadRecording_Extended()
+    public NL_StopRecording_Extended()
     {
         // Do not delete - a parameterless constructor is required!
     }

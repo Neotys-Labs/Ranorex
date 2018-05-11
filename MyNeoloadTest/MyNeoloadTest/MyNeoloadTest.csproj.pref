@@ -1,19 +1,28 @@
 ﻿<Properties>
+  <Array name="active">
+    <Element value="MyNeoloadTest.rxtst" />
+  </Array>
   <Array name="bookmarks">
-    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|84|13|True|Break||" />
-    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|509|13|True|Break||" />
+    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|82|4|True|Break||" />
+    <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|165|4|True|Break||" />
   </Array>
   <Array name="files">
-    <Element value="Record_EUE.cs" />
-    <Element value="Record_EUE.rxrec" />
+    <Element value="NeoLoad\Modules\NL_OpenProject.cs" />
+    <Element value="NeoLoad\Modules\NL_StartRecording.cs" />
     <Element value="NeoLoad\_NeoloadDesignAPIWrapper.cs" />
-    <Element value="NeoLoad\Modules\NL_StopRecording.cs" />
+    <Element value="NeoLoad\NeoLoadCodeCollection.cs" />
+    <Element value="Record_EUE.rxrec" />
     <Element value="MyNeoloadTest.rxtst" />
+    <Element value="NeoLoad\Messages.cs" />
+    <Element value="NeoLoad\Modules\NL_ConnectToDataExchangeAPI.cs" />
+    <Element value="NeoLoad\Modules\NL_ConnectToDesignAPI.cs" />
+    <Element value="NeoLoad\NavigationTimingWrapper.cs" />
+    <Element value="NeoLoad\NeoloadApi.cs" />
+    <Element value="NeoLoad\INeoloadApi.cs" />
+    <Element value="Record_EUE.cs" />
+    <Element value="NeoLoad\Modules\NL_StopRecording.cs" />
     <Element value="NeoLoad\config\ParamBuilderProvider.cs" />
     <Element value="MyNeoloadTestRepository.rxrep" />
-    <Element value="NeoLoad\NeoLoadCodeCollection.cs" />
-    <Element value="NeoLoad\INeoloadApi.cs" />
-    <Element value="NeoLoad\NeoloadApi.cs" />
     <Element value="NeoLoad\Modules\NL_CreateProject.cs" />
   </Array>
   <Properties name="projectSavedData">

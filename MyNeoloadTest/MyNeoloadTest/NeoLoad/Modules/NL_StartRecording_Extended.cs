@@ -24,7 +24,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 	/// Description of StartNeoloadRecording_Extended.
 	/// </summary>
 	[TestModule("0CA7A37E-2C42-41F3-989C-0F5BC0E014BB", ModuleType.UserCode, 1)]
-	public class StartNeoloadRecording_Extended : ITestModule
+	public class NL_StartRecording_Extended : ITestModule
 	{
 		string _userPath = "";
 		[TestVariable("216b4936-592f-40c0-7a8b-6fe68fce74bb")]
@@ -84,7 +84,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 		/// <summary>
 		/// Constructs a new instance.
 		/// </summary>
-		public StartNeoloadRecording_Extended()
+		public NL_StartRecording_Extended()
 		{
 			// Do not delete - a parameterless constructor is required!
 		}
