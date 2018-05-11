@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>{638F4593-2836-4F59-A74A-4F5522FF2D01}</ProjectGuid>
     <TargetFrameworkProfile />
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Exe</OutputType>
     <RootNamespace>MyNeoloadTest</RootNamespace>
