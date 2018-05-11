@@ -7,11 +7,12 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Exe</OutputType>
     <RootNamespace>MyNeoloadTest</RootNamespace>
-    <AssemblyName>MyNeoloadTest</AssemblyName>
+    <AssemblyName>Neoload Project</AssemblyName>
     <RanorexVersion>8.1</RanorexVersion>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <RanorexTargetsPath>$(MSBuildProgramFiles32)\MSBuild\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
     <projectdefaultrepository>65cc9a31-65f4-4598-914a-687e10380aa4</projectdefaultrepository>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
