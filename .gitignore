@@ -1,3 +1,6 @@
 MyNeoloadTest/packages/
 MyNeoloadTest/MyNeoloadTest/obj/
 MyNeoloadTest/MyNeoloadTest/bin/
+Reports/
+*/.vs/
+.gitattributes
