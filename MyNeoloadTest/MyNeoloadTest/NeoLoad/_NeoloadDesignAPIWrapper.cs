@@ -79,7 +79,15 @@ namespace NeoloadDesignTest
 		
 		private NeoloadDesignAPIWrapper()
 		{
-			_mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
+			string globalMode = TestSuite.Current.Parameters["mode"];
+			if(!String.IsNullOrEmpty(globalMode))
+			{
+				_mode = (Mode)Enum.Parse(typeof(Mode), globalMode.ToUpper());
+			}
+			else
+			{
+				_mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
+			}
 		}
 		
 		~NeoloadDesignAPIWrapper()
@@ -533,6 +541,7 @@ namespace NeoloadDesignTest
 		{
 			if(Mode.DESIGN == _mode)
 			{
+				this.CheckDesignIsConnected();
 				var status = _client.GetStatus();
 				if(status != DesignState.BUSY)
 					throw(new Exception("Error!! No recording currently running!"));
@@ -540,6 +549,7 @@ namespace NeoloadDesignTest
 			}
 			else if(Mode.END_USER_EXPERIENCE == _mode)
 			{
+				CheckDataExchangeIsConnected();
 				if (transactionName != null)
 				{
 					StopTransaction();
@@ -556,6 +566,7 @@ namespace NeoloadDesignTest
 		{
 			if(Mode.END_USER_EXPERIENCE == _mode)
 			{
+				CheckDataExchangeIsConnected();
 				HandleTimer();
 				transactionName = null;
 				timerBuilder = null;
@@ -611,7 +622,7 @@ namespace NeoloadDesignTest
 				MatchCollection matchCollection = Regex.Matches(arg, pattern);
 				if (matchCollection.Count > 0)
 				{
-					return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value);
+					return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value.ToUpper());
 				}
 			}
 			return defaultValue;

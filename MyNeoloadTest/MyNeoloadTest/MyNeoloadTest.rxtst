@@ -438,6 +438,7 @@ rxversion="8.1">
 				</parameters>
 			</testcase>
 			<testcase
+			datasource="NewConnector"
 			id="8f9e18da-d48f-4e13-acb1-f60c6af30a2b"
 			name="Test_Recording_With_Transactions">
 				<parameters>
@@ -603,6 +604,12 @@ rxversion="8.1">
 			id="a0dc4f72-605a-4a97-90d6-0ffee168b530"
 			name="MyNeoloadTest"
 			reportlevel="Info;20">
+				<parameters>
+					<param
+					name="mode"
+					value="">
+					</param>
+				</parameters>
 			</testcase>
 			<testmodule
 			id="a8fe8f2e-653f-4c45-93ca-a15ddb7fadfb"
@@ -1135,13 +1142,42 @@ rxversion="8.1">
 		</childhierarchy>
 	</testsuiteentryhierarchy>
 	<datasources>
+		<DataSource
+		id="a8c63d85-9878-4155-8bd2-9747bb62ab90"
+		lastknownrowcount="2"
+		name="NewConnector"
+		type="Ranorex.Core.Data.SimpleDataConnector">
+			<lastknowncolumns>
+				<column>
+					Mode
+				</column>
+			</lastknowncolumns>
+			<maskedcolumns>
+			</maskedcolumns>
+			<table>
+				<tr>
+					<th>
+						Mode
+					</th>
+				</tr>
+				<tr>
+					<td>
+						No_API
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+				</tr>
+			</table>
+		</DataSource>
 	</datasources>
 	<testconfigurations
 	default="TestRun">
 		<testconfiguration
 		name="TestRun">
 			<testcontainer
-			id="8bc36ffa-e4ce-4300-a62d-6086ae191aff">
+			id="8f9e18da-d48f-4e13-acb1-f60c6af30a2b">
 			</testcontainer>
 			<testcontainer
 			id="a0dc4f72-605a-4a97-90d6-0ffee168b530">
