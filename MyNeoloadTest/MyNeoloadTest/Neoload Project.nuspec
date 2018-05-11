@@ -20,8 +20,6 @@
     </dependencies>    
   </metadata>
   <files>
-    <file src="NeoLoad\**\*.*" target="content\NeoLoad" />
+	  <file src="NeoLoad\**\*.*" target="content\NeoLoad" />
   </files>
-</package>
-  </metadata>
 </package>

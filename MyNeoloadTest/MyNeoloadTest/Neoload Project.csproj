@@ -3,7 +3,6 @@
   <PropertyGroup>
     <ProjectGuid>{638F4593-2836-4F59-A74A-4F5522FF2D01}</ProjectGuid>
     <TargetFrameworkProfile />
-    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>Exe</OutputType>
     <RootNamespace>MyNeoloadTest</RootNamespace>
@@ -12,14 +11,15 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <RanorexTargetsPath>$(MSBuildProgramFiles32)\MSBuild\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
     <projectdefaultrepository>65cc9a31-65f4-4598-914a-687e10380aa4</projectdefaultrepository>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
     <PlatformTarget>x86</PlatformTarget>
     <Prefer32Bit>True</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <OutputPath>bin\Debug\</OutputPath>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
     <DebugSymbols>True</DebugSymbols>
     <DebugType>Full</DebugType>
     <Optimize>False</Optimize>
