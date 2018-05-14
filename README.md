@@ -206,9 +206,6 @@ Interaction with the NeoLoad Runtime API allows you to start/stop a NeoLoad test
 
 Interaction with the NeoLoad Runtime API allows you to add/stop Virtual Users during a NeoLoad test.
 
-* Insert the module NL_ConnectToRuntimeAPI into the test case.
-<p align="center"><img src="/screenshots/connecttoruntimeapi.png" alt="Connect to Runtime API" /></p>
-
 * To add Virtual Users, insert the module NL_AddVirtualUsers into the test case.
 
 <p align="center"><img src="/screenshots/addvirtualusers.png" alt="Add Virtual Users" /></p>
