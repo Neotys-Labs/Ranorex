@@ -23,7 +23,7 @@ It allows you to interact with the NeoLoad API:
 
 ## Setting up the Ranorex - NeoLoad integration
 
-On Ranorex Studio, add the latest version of the Ranorex - NeoLoad integration from NuGet: 
+On Ranorex Studio, add the latest version of the [NeoLoad Ranorex Plugin](#https://www.nuget.org/packages/Neoload.Ranorex/0.1.0) from NuGet: 
 1. Right-click on the **References** node in the Ranorex Projects view.
 2. Select **Manage Packages...**:
 <p align="center"><img src="/screenshots/references.png" alt="References" /></p>

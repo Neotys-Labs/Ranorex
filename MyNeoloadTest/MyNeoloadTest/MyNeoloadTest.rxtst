@@ -124,11 +124,21 @@ rxversion="8.1">
 			type="UserCode">
 			</testmodule>
 			<testmodule
+			id="2113f5f9-0e6b-421d-8183-fc09a193e5cd"
+			name="NL_StopRecording"
+			ref="afd2cc52-0f56-4372-885c-ec80fb8b19a8"
+			type="UserCode">
+			</testmodule>
+			<testmodule
 			id="27b715b3-3ba2-4878-b316-3d48cae71415"
 			name="Simple_record"
 			ref="a645a157-ef64-4983-8fa1-d7e145fba24b"
 			type="Recording">
 			</testmodule>
+			<testcase
+			id="2945a20e-c8f1-4b3a-8039-f07fec84e816"
+			name="Design">
+			</testcase>
 			<testmodule
 			id="34393997-09c3-4718-854a-5243bb724fbf"
 			name="Transaction_record"
@@ -185,6 +195,12 @@ rxversion="8.1">
 			id="4b27de26-8db8-4589-b8f8-0aca0a5dc561"
 			name="NL_ConnectToDesignAPI"
 			ref="ddb5d95f-5258-4e13-8e97-2d8ed0d73741"
+			type="UserCode">
+			</testmodule>
+			<testmodule
+			id="4f4d9c0c-6d55-4f48-910a-a63484069d38"
+			name="NL_SaveProject"
+			ref="23d296c2-d87d-4f67-ace0-652bdf3f4cff"
 			type="UserCode">
 			</testmodule>
 			<testmodule
@@ -676,10 +692,22 @@ rxversion="8.1">
 				</databinding>
 			</testmodule>
 			<testmodule
+			id="afdc2bd4-b31e-4a39-bc3c-646f1eba32ae"
+			name="NL_ConnectToDesignAPI"
+			ref="ddb5d95f-5258-4e13-8e97-2d8ed0d73741"
+			type="UserCode">
+			</testmodule>
+			<testmodule
 			id="b571e971-e826-4107-9a8a-22b14fc654a9"
 			name="NL_StopVirtualUsers"
 			ref="5a07983b-5ca3-4aca-bd9e-59a37ef8fee4"
 			type="UserCode">
+			</testmodule>
+			<testmodule
+			id="b8310bec-e271-4d35-8904-82e4db7284d6"
+			name="Simple_record"
+			ref="a645a157-ef64-4983-8fa1-d7e145fba24b"
+			type="Recording">
 			</testmodule>
 			<testmodule
 			id="bd0e2316-38b4-40a4-9360-fe36c0ab8fb2"
@@ -815,6 +843,12 @@ rxversion="8.1">
 			reportwriteinterval="30000ms"
 			showinvisiblechars="True">
 			</testsuite>
+			<testmodule
+			id="d8e658cf-ebd9-4d5d-8325-817af66a96ef"
+			name="NL_OpenProject"
+			ref="7436648f-342d-444d-b2dd-f1347e262bdb"
+			type="UserCode">
+			</testmodule>
 			<testmodule
 			id="df3750e0-b6af-41bb-b8e6-384e6dee84e7"
 			name="NL_StopTest"
@@ -1137,6 +1171,30 @@ rxversion="8.1">
 						name="NL_SaveProject">
 						</testmodule>
 					</testcase>
+					<testcase
+					id="2945a20e-c8f1-4b3a-8039-f07fec84e816"
+					name="Design">
+						<testmodule
+						id="afdc2bd4-b31e-4a39-bc3c-646f1eba32ae"
+						name="NL_ConnectToDesignAPI">
+						</testmodule>
+						<testmodule
+						id="d8e658cf-ebd9-4d5d-8325-817af66a96ef"
+						name="NL_OpenProject">
+						</testmodule>
+						<testmodule
+						id="b8310bec-e271-4d35-8904-82e4db7284d6"
+						name="Simple_record">
+						</testmodule>
+						<testmodule
+						id="2113f5f9-0e6b-421d-8183-fc09a193e5cd"
+						name="NL_StopRecording">
+						</testmodule>
+						<testmodule
+						id="4f4d9c0c-6d55-4f48-910a-a63484069d38"
+						name="NL_SaveProject">
+						</testmodule>
+					</testcase>
 				</testcase>
 			</testsuite>
 		</childhierarchy>
@@ -1167,6 +1225,9 @@ rxversion="8.1">
 	default="TestRun">
 		<testconfiguration
 		name="TestRun">
+			<testcontainer
+			id="2945a20e-c8f1-4b3a-8039-f07fec84e816">
+			</testcontainer>
 			<testcontainer
 			id="8f9e18da-d48f-4e13-acb1-f60c6af30a2b">
 			</testcontainer>

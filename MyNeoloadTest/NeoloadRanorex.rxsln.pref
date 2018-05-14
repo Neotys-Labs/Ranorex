@@ -1,0 +1,14 @@
+﻿<Properties>
+  <ActiveConfiguration value="Release" />
+  <ActivePlatform value="x86" />
+  <SerializedValue name="ModuleBrowserState">
+    <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <string>{638F4593-2836-4F59-A74A-4F5522FF2D01}</string>
+      <string>60513a05-eab7-41e7-8c10-e51c735edc2e</string>
+      <string>NeoLoad</string>
+      <string>NeoLoad\Modules</string>
+    </ArrayOfString>
+  </SerializedValue>
+  <ProjectBrowserState value="[Solution NeoloadRanorex[]]&#xD;&#xA;Solution NeoloadRanorex\Neoload Project&#xD;&#xA;Solution NeoloadRanorex" />
+  <StartupProject value="{638F4593-2836-4F59-A74A-4F5522FF2D01}" />
+</Properties>
