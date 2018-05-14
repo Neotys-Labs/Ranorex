@@ -21,18 +21,18 @@ It allows you to interact with the NeoLoad API:
 |Supported versions | Tested with Ranorex version [8.1.1](https://info.ranorex.com/e/428272/download-zip-Ranorex-8-1-1/9xvs1r/871610304) and NeoLoad version [6.4.0](https://www.neotys.com/support/download-neoload)|
 | Download Binaries | See the [latest release](https://github.com/Neotys-Labs/Ranorex/releases/latest)|
 
-## Setting up the Ranorex - NeoLoad integration
+## Setting up the NeoLoad Ranorex Plugin
 
 On Ranorex Studio, add the latest version of the [NeoLoad Ranorex Plugin](#https://www.nuget.org/packages/Neoload.Ranorex/0.1.0) from NuGet: 
 1. Right-click on the **References** node in the Ranorex Projects view.
 2. Select **Manage Packages...**:
 <p align="center"><img src="/screenshots/references.png" alt="References" /></p>
 
-3. Search for **NeoLoad** in **nuget.org** and add the **Ranorex-NeoLoad integration** package:
-<p align="center"><img src="/screenshots/select package.png" alt="Select package" /></p>
+3. Search for **NeoLoad** in **nuget.org** and add the **NeoLoad Ranorex Plugin** package:
+<p align="center"><img src="/screenshots/selectpluginfromnuget.PNG" alt="SelectPluginFromNuget" /></p>
 
 This will automatically add the necessary libraries to the Ranorex project. The following modules will now appear in the module browser:
-<p align="center"><img src="/screenshots/modulebrowser.png" alt="Module browser" /></p>
+<p align="center"><img src="/screenshots/modules.png" alt="Modules" /></p>
 
 ## NeoLoad module definitions
    
