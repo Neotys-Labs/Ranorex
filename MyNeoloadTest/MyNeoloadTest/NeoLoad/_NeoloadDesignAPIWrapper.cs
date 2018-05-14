@@ -79,7 +79,16 @@ namespace NeoloadDesignTest
 		
 		private NeoloadDesignAPIWrapper()
 		{
-			string globalMode = TestSuite.Current.Parameters["mode"];
+			string globalMode = null;
+			try
+			{
+				globalMode = TestSuite.Current.Parameters[OPT_RANOREX_NEOLOAD_MODE];
+			}
+			catch (Exception e)
+			{
+				// Do nothing
+			}
+			
 			if(!String.IsNullOrEmpty(globalMode))
 			{
 				_mode = (Mode)Enum.Parse(typeof(Mode), globalMode.ToUpper());
@@ -222,6 +231,10 @@ namespace NeoloadDesignTest
 		public void ConnectToDataExchangeApi(string dataExchangeApiUrl, string apiKey, NeoloadContextData ctx)
 		{
 			context = CreateContext(ctx);
+			if(apiKey == null)
+			{
+				apiKey = String.Empty;
+			}
 			this._dataExchangeClient = DataExchangeAPIClientFactory.NewClient(dataExchangeApiUrl, context, apiKey);
 		}
 		

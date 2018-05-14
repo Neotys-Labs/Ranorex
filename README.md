@@ -129,6 +129,18 @@ This module stops a recording.
 Parameter: 
 * **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
 
+### Module NL_StopRecording_Extended
+
+This module is stops recording with more paramùeters.
+Parameters: 
+* **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
+* **frameworkParameterSearch**: Boolean. Default value is **true**.
+* **genericParameterSearch**: Boolean. Default value is **true**.
+* **deleteExistingRecording**: Boolean. Default value is **false**.
+* **includeVariablesInUserpathMerge**: Boolean. Default value is **true**.
+* **updateSharedContainers**: Boolean. Default value is **false**.
+* **matchingThreshold**: Integer. Default value is **60**.
+
 ### Module NL_ConnectToRuntimeAPI
 
 This module establishes a connection to the NeoLoad Runtime API. 

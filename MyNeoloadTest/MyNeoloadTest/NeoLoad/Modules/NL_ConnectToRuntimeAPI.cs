@@ -45,11 +45,6 @@ namespace Ranorex.NeoLoad
                 throw new InvalidOperationException("No runtime API URL provided. Cannot connect to NeoLoad server provided.");
             }
 
-            if (string.IsNullOrWhiteSpace(this.ApiKey))
-            {
-                throw new InvalidOperationException("No NeoLoad API Key provided.");
-            }
-
             api.ConnectToRuntimeApi(this.RuntimeApiUri, this.ApiKey);
         }
     }

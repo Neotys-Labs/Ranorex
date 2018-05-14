@@ -42,6 +42,10 @@ namespace Ranorex.NeoLoad
 
 		public void ConnectToRuntimeApi(string runtimeApiUrl, string apiKey)
 		{
+			if(apiKey == null)
+			{
+				apiKey = String.Empty;
+			}
 			this.runtimeClient = RuntimeAPIClientFactory.NewClient(runtimeApiUrl, apiKey);
 		}
 

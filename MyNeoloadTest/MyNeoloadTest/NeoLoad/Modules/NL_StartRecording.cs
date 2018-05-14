@@ -42,14 +42,6 @@ namespace NeoloadDesignTest.NeoloadDesignLib
             set { _updateUserPath = value; }
         }
 
-        string _userAgentString = "";
-        [TestVariable("ecfc6410-9ba8-4352-85be-b370b0391967")]
-        public string userAgentString
-        {
-            get { return _userAgentString; }
-            set { _userAgentString = value; }
-        }
-
         /// <summary>
         /// Constructs a new instance.
         /// </summary>
@@ -84,7 +76,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
                                                               timeout.ToString(fmt), interval.ToString(fmt)));
                 }
                 var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-                wrapper.startRecording(userPath, Convert.ToBoolean(updateUserPath), timeout, interval, userAgentString);
+                wrapper.startRecording(userPath, Convert.ToBoolean(updateUserPath), timeout, interval);
             }
             catch (FormatException ex)
             {
