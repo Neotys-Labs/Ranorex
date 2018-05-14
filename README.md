@@ -34,6 +34,33 @@ On Ranorex Studio, add the latest version of the [NeoLoad Ranorex Plugin](#https
 This will automatically add the necessary libraries to the Ranorex project. The following modules will now appear in the module browser:
 <p align="center"><img src="/screenshots/modules.png" alt="Modules" /></p>
 
+## Global Configuration
+
+Three global modes exist: **DESIGN**, **END_USER_EXPERIENCE** and **NO_API**.
+The mode can be set as an environment variable (in this case a Ranorex Studio restart is mandatory) or as a global parameter of the test suite. The variable key to set is **nl.ranorex.neoload.mode**.
+
+To set a Ranorex test suite global parameter open Global parameters window:
+
+<p align="center"><img src="/screenshots/testsuiteglobalparam.PNG" alt="TestSuiteGlobalParam" /></p>
+
+Then add the key and the value of the parameter:
+
+<p align="center"><img src="/screenshots/testsuiteglobalparamform.PNG" alt="TestSuiteGlobalParamForm" /></p>
+
+If defined, the Ranorex test suite global parameter will overwrite the System environment variable.
+
+### Design Mode 
+
+Used for Neoload recording.
+
+### End User Experience Mode
+
+Used to send measured timer to Data Exchange API.
+
+### No Api Mode
+
+No recording or measurement to do.
+
 ## NeoLoad module definitions
    
 ### Module NL_ConnectToDesignAPI
@@ -191,6 +218,24 @@ Interaction with the NeoLoad Design API allows you to record/update a Ranorex sc
 <p align="center"><img src="/screenshots/startstoprecording.png" alt="Start stop recording" /></p>
 
 During the execution of the Ranorex test case, if the NeoLoad User Path does not exist, it will be created. Otherwise, the existing User Path will be updated. 
+
+### How to manage transactions 
+Neoload transactions management can be done by inserting **user code** actions in the Ranorex recording.
+##### Design Mode
+* **StartTransaction**: Starts a new Neoload transaction. A transaction name is mandatory.
+* **StopTransaction**: Not used for this mode.
+##### End User Experience Mode
+A connection to the Data Exchange API is required before invoking these actions.
+* **StartTransaction**: Starts the timer and stops the last running one.
+* **StopTransaction**: Stops the timer and send it using Data Exchange API.
+
+Using a Ranorex record
+<p align="center"><img src="/screenshots/ranorexrecord.png" alt="RanorexRecord" /></p>
+Add user code action as steps in the recording
+<p align="center"><img src="/screenshots/addusercode.png" alt="AddUserCode" /></p>
+<p align="center"><img src="/screenshots/addusercode2.png" alt="AddUserCode2" /></p>
+<p align="center"><img src="/screenshots/transactionexample.png" alt="TransactionExample" /></p>
+
 
 ### How to start/stop a NeoLoad test
 
