@@ -8,6 +8,7 @@
     <Element value="Breakpoint|C:\Users\mlasram\git\Neotys\Ranorex\MyNeoloadTest\MyNeoloadTest\NeoLoad\_NeoloadDesignAPIWrapper.cs|481|4|False|Break||" />
   </Array>
   <Array name="files">
+    <Element value="packages.config" />
     <Element value="MyNeoloadTest.rxtst" />
     <Element value="AssemblyInfo.cs" />
     <Element value="NeoLoad\_NeoloadDesignAPIWrapper.cs" />

@@ -63,7 +63,9 @@ Parameters:
 ### Module NL_SaveProject
 
 This module saves a NeoLoad project.
-No Parameter.
+Two optional parameters:
+* **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to accomplish the save action (default value: **00:05:00**). 
+* **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to save project (default value: **00:00:20**).
 
 ### Module NL_CloseProject
 
@@ -78,14 +80,27 @@ This module starts a recording.
 Parameters: 
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
-* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used, then it is automatically renamed using a “_X” suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
+* **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.
+* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a “_X” suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
+
+### Module NL_StartRecording_Extended
+
+This module is starts recording with more paramùeters.
+* **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
+* **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
+* **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.
+* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a “_X” suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
+* **userAgentString**: Used to specify the user agent.
+* **isWebSocketProtocol**: Boolean. Default value is **false**.
+* **isHttp2Protocol**: Boolean. Default value is **false**.
+* **isAdobeRTMPProtocol**: Boolean. Default value is **false**.
+* **addressToExclude**: List of addresses separated by a semicolon. Requests and responses through these addresses will not be taken into account by Neaoload when recording (example : **10.0.0.5:7400;10.3.1.15;localhost:9100**) 
 
 ### Module NL_StopRecording
 
 This module stops a recording.
-Parameters: 
-* **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
-* **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
+Parameter: 
+* **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
 
 ### Module NL_ConnectToRuntimeAPI
 
@@ -116,7 +131,7 @@ Parameters:
 
 This module adds virtual users to a population, defined in a NeoLoad test scenario. This module can only be used when a test is already running.
 Parameters: 
-* **Population**: The population, as defined in the NeoLoad test scenario, virtual users will be added to. 
+* **Population**: The population, as defined in the NeoLoad test scenario, virtual users will be added to.
 * **Amount**: Integer. The amount of virtual users that should be added to the given population.
 
 ### Module NL_StopVirtualUsers
@@ -230,7 +245,7 @@ To use that user code:
 
 ## ChangeLog
 
-* Version 1.0.0 (September 20, 2017): Initial release.
+* Version 0.1.0 (May 11, 2018): Initial release.
 
 
 
