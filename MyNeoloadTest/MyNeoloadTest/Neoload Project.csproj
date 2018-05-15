@@ -246,42 +246,6 @@
     <Compile Include="Program.cs">
       <id>dea89852-4df0-43ba-a636-4cbcd94c9ad5</id>
     </Compile>
-    <Compile Include="Record_EUE.cs">
-      <BoundTo>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</BoundTo>
-      <DependentUpon>Record_EUE.rxrec</DependentUpon>
-      <RecorderCode>true</RecorderCode>
-      <id>d86bd378-5d08-466d-b468-652c3e2ad6dd</id>
-    </Compile>
-    <Compile Include="Record_EUE.UserCode.cs">
-      <BoundTo>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</BoundTo>
-      <DependentUpon>Record_EUE.rxrec</DependentUpon>
-      <UserCode>true</UserCode>
-      <id>81ecc1e0-77a9-4687-99ca-d39d88a4de6f</id>
-    </Compile>
-    <Compile Include="simple_record.cs">
-      <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
-      <DependentUpon>simple_record.rxrec</DependentUpon>
-      <RecorderCode>true</RecorderCode>
-      <id>1159f156-4794-481d-9620-27f86a8014d3</id>
-    </Compile>
-    <Compile Include="simple_record.UserCode.cs">
-      <BoundTo>e4aacafe-e832-41a7-a855-50547806b735</BoundTo>
-      <DependentUpon>simple_record.rxrec</DependentUpon>
-      <UserCode>true</UserCode>
-      <id>870ce552-1f9c-46bd-a50e-a639850e12b2</id>
-    </Compile>
-    <Compile Include="transaction_record.cs">
-      <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
-      <DependentUpon>transaction_record.rxrec</DependentUpon>
-      <RecorderCode>true</RecorderCode>
-      <id>5d730509-2ec2-4668-b978-636d08d88ad7</id>
-    </Compile>
-    <Compile Include="transaction_record.UserCode.cs">
-      <BoundTo>3e7ab485-896b-4b75-90a2-88dc552e9ab9</BoundTo>
-      <DependentUpon>transaction_record.rxrec</DependentUpon>
-      <UserCode>true</UserCode>
-      <id>b6ad8399-7db7-4286-8e63-dee353986943</id>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -304,30 +268,11 @@
     <None Include="packages.config">
       <id>11e9d116-c729-4be7-a54b-4cbd9a7fb501</id>
     </None>
-    <None Include="Record_EUE.rxrec">
-      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
-      <id>4dbd7490-3f5d-4c9c-8a5e-ee6826f449cb</id>
-      <recordtableid>eeb7f29c-a03f-4a79-9ae5-efbc21c7d889</recordtableid>
-    </None>
-    <None Include="simple_record.rxrec">
-      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
-      <id>e4aacafe-e832-41a7-a855-50547806b735</id>
-      <recordtableid>a645a157-ef64-4983-8fa1-d7e145fba24b</recordtableid>
-    </None>
-    <None Include="transaction_record.rxrec">
-      <BoundTo>65cc9a31-65f4-4598-914a-687e10380aa4</BoundTo>
-      <id>3e7ab485-896b-4b75-90a2-88dc552e9ab9</id>
-      <recordtableid>c761e308-8719-4555-8c3c-df21817a2bb1</recordtableid>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MyNeoloadTest.rxtmg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <id>1b76969a-d9c1-4a22-9e25-b0f7030e895c</id>
-    </Content>
-    <Content Include="MyNeoloadTest.rxtst">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <id>81d44fc2-dd93-45b8-ba60-93ffd39d5e97</id>
     </Content>
   </ItemGroup>
   <ItemGroup />
