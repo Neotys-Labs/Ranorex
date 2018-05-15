@@ -20,7 +20,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
     public class NL_StartRecording : ITestModule
     {
 
-        string _userPath = "";
+        string _userPath = "UserPath";
         [TestVariable("216b4936-592f-40c0-8c8b-6fe68fce74bb")]
         public string userPath
         {

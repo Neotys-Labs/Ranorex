@@ -48,6 +48,7 @@ Then add the key and the value of the parameter:
 <p align="center"><img src="/screenshots/testsuiteglobalparamform.PNG" alt="TestSuiteGlobalParamForm" /></p>
 
 If defined, the Ranorex test suite global parameter will overwrite the System environment variable.
+Default mode is **NO_API**.
 
 ### Design Mode 
 
@@ -112,7 +113,7 @@ Parameters:
 
 ### Module NL_StartRecording_Extended
 
-This module is starts recording with more paramùeters.
+This module is starts recording with more parameters.
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
 * **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.

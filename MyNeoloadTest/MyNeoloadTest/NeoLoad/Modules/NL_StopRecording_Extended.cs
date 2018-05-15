@@ -27,7 +27,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
   public class NL_StopRecording_Extended : ITestModule
   {
     
-    string _timeout = "";
+    string _timeout = "1200";
     [TestVariable("254dea08-0bea-418a-b991-caf6af62c065")]
     public string timeout
     {

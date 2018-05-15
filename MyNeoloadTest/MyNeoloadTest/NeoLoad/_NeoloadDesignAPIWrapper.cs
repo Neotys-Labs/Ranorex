@@ -408,7 +408,7 @@ namespace NeoloadDesignTest
 
 			if (pathExists)
 			{
-				_updateUserPathPB.name(_startRecordingPB.VirtualUser);
+				_updateUserPathPB.name(this.userPathName);
 
 				_updateUserPathPB.deleteRecording(deleteExistingRecording);
 				_updateUserPathPB.includeVariables(includeVariablesInUserpathMerge);
