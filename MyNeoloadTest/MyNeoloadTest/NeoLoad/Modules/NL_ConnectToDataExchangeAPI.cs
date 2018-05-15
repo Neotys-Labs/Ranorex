@@ -70,7 +70,7 @@ namespace Ranorex.NeoLoad
             if (string.IsNullOrWhiteSpace(this.ApiKey))
             {
                 throw new InvalidOperationException("No NeoLoad API Key provided.");
-            
+            }
             string tsName = "<No test suite available>";
             if(TestSuite.Current != null) 
             {

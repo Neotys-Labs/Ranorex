@@ -550,12 +550,6 @@ rxversion="8.1">
 					variableid="8a8f3b2c-1b8e-458b-b5aa-a91e0042e99a"
 					variablename="updateUserPath">
 					</var>
-					<var
-					dataname="userAgentString"
-					datasourceid="8bc36ffa-e4ce-4300-a62d-6086ae191aff"
-					variableid="ecfc6410-9ba8-4352-85be-b370b0391967"
-					variablename="userAgentString">
-					</var>
 				</databinding>
 			</testmodule>
 			<testmodule
@@ -682,12 +676,6 @@ rxversion="8.1">
 					datasourceid="012d7b92-53e0-4f24-9bc3-46790f9dbdfe"
 					variableid="8a8f3b2c-1b8e-458b-b5aa-a91e0042e99a"
 					variablename="updateUserPath">
-					</var>
-					<var
-					dataname="userAgentString"
-					datasourceid="012d7b92-53e0-4f24-9bc3-46790f9dbdfe"
-					variableid="ecfc6410-9ba8-4352-85be-b370b0391967"
-					variablename="userAgentString">
 					</var>
 				</databinding>
 			</testmodule>
