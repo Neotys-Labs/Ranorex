@@ -518,7 +518,7 @@ namespace NeoloadDesignTest
 		
 		public void unsetNeoloadProxy()
 		{
-			if(Mode.NO_API == _mode){
+			if(Mode.DESIGN != _mode){
 				return;
 			}
 			
@@ -527,7 +527,7 @@ namespace NeoloadDesignTest
 			try {
 				if(_proxySettings != null && _proxySettings.Length >0)
 				{
-					registry.SetValue("ProxyEnable", _proxyInUse);
+					registry.SetValue("ProxyEnable", _proxyInUse ? 1 : 0);
 					registry.SetValue("ProxyServer", _proxySettings);
 					registry.SetValue("ProxyOverride", _proxyOverride);
 				}

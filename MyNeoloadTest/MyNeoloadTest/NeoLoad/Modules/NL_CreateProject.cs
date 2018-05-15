@@ -43,7 +43,7 @@ namespace NeoloadDesignTest.lib
       set { _directoryPath = value; }
     }
     
-    string _overwriteExisting = "";
+    string _overwriteExisting = "false";
     [TestVariable("caa5ce38-0ce3-43cd-9e0c-60229916ce29")]
     public string overwriteExisting
     {
