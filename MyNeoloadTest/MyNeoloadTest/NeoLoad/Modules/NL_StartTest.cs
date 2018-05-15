@@ -44,7 +44,7 @@ namespace Ranorex.NeoLoad
 
         public NL_StartTest()
         {
-        	this.Interval = "00:00:10";
+        	this.Interval = "00:00:05";
         	this.Timeout = "00:01:00";
         }
         

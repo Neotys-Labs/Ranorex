@@ -276,6 +276,8 @@ namespace NeoloadDesignTest
 				return;
 			}
 			
+			this.CheckDesignIsConnected();
+			
 			if(isProjectOpen())
 				throw(new Exception("Error!! Another project is already open. Close it to create a new one!"));
 			
@@ -294,6 +296,8 @@ namespace NeoloadDesignTest
 				return;
 			}
 			
+			this.CheckDesignIsConnected();
+			
 			if(isProjectOpen())
 				throw(new Exception("Error!! Another project is already open. Close it to open this poject:" + filePath));
 			
@@ -309,6 +313,8 @@ namespace NeoloadDesignTest
 			{
 				return;
 			}
+			
+			this.CheckDesignIsConnected();
 			
 			var curState = _client.GetStatus();
 			switch (curState)
@@ -328,6 +334,8 @@ namespace NeoloadDesignTest
 			{
 				return;
 			}
+			
+			this.CheckDesignIsConnected();
 			
 			var status = _client.GetStatus();
 			if(status != DesignState.NO_PROJECT){
@@ -350,6 +358,8 @@ namespace NeoloadDesignTest
 			{
 				return;
 			}
+			
+			this.CheckDesignIsConnected();
 			
 			if(!isNeoloadReady())
 				throw(new Exception("Error!! Can't start recording. Neoload is not ready yet."));
@@ -401,6 +411,8 @@ namespace NeoloadDesignTest
 			{
 				return;
 			}
+			
+			this.CheckDesignIsConnected();
 
 			var status = _client.GetStatus();
 			if (status != DesignState.BUSY)
@@ -466,11 +478,11 @@ namespace NeoloadDesignTest
 		{
 			for (var start = System.DateTime.UtcNow; System.DateTime.UtcNow < start + timeout; /* No increment */)
 			{
-				Thread.Sleep(interval);
 				if (check())
 				{
 					return true;
 				}
+				Thread.Sleep(interval);
 			}
 
 			return false;

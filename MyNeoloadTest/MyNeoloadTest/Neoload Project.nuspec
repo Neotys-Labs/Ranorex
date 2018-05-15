@@ -9,7 +9,7 @@
     <licenseUrl>http://www.neotys.fr/documents/legal/bsd-neotys.txt</licenseUrl>
     <projectUrl>https://github.com/Neotys-Labs/Ranorex</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package is Noeload Ranorex Plugin</description>
+    <description>This package is Neoload Ranorex Plugin</description>
     <releaseNotes>First release including design, runtime and End User Experience features</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Neoload_Ranorex</tags>

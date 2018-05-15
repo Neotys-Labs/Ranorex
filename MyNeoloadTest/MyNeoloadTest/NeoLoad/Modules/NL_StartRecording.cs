@@ -47,7 +47,7 @@ namespace NeoloadDesignTest.NeoloadDesignLib
         /// </summary>
         public NL_StartRecording()
         {
-            this.Interval = "00:00:10";
+            this.Interval = "00:00:05";
             this.Timeout = "00:01:00";
         }
 

@@ -26,7 +26,7 @@ namespace NeoloadDesignTest.lib
   [TestModule("23D296C2-D87D-4F67-ACE0-652BDF3F4CFF", ModuleType.UserCode, 1)]
   public class NL_SaveProject : ITestModule
   {
-  string _interval = "00:00:20";
+  string _interval = "00:00:10";
   [TestVariable("47b82b06-3aa6-47d2-93e5-f7ede1d50a6c")]
   public string interval
   {

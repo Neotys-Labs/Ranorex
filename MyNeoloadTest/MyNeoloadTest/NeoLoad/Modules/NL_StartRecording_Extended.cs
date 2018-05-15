@@ -26,14 +26,13 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 	[TestModule("0CA7A37E-2C42-41F3-989C-0F5BC0E014BB", ModuleType.UserCode, 1)]
 	public class NL_StartRecording_Extended : ITestModule
 	{
-		string _userPath = "";
+		string _userPath = "UserPath";
 		[TestVariable("216b4936-592f-40c0-7a8b-6fe68fce74bb")]
 		public string userPath
 		{
 			get { return _userPath; }
 			set { _userPath = value; }
 		}
-		
 		
 		string _updateUserPath = "true";
 		[TestVariable("8a8f3b2c-1b8e-458b-b5bb-a91e0042e99a")]
@@ -90,7 +89,8 @@ namespace NeoloadDesignTest.NeoloadDesignLib
 		/// </summary>
 		public NL_StartRecording_Extended()
 		{
-			// Do not delete - a parameterless constructor is required!
+			this.Interval = "00:00:05";
+            this.Timeout = "00:01:00";
 		}
 
 		/// <summary>
