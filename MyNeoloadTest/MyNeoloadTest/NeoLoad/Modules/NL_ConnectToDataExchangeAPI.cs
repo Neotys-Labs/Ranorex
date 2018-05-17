@@ -64,13 +64,12 @@ namespace Ranorex.NeoLoad
         {
             if (string.IsNullOrWhiteSpace(DataExchangeApiUri))
             {
-                throw new InvalidOperationException("No runtime API URI was provided. Cannon connect to NeoLoad server.");
+                throw new InvalidOperationException("No DataExchange API URI was provided. Cannon connect to NeoLoad server.");
             }
 
             if (string.IsNullOrWhiteSpace(this.ApiKey))
             {
                 throw new InvalidOperationException("No NeoLoad API Key provided.");
-            }
             string tsName = "<No test suite available>";
             if(TestSuite.Current != null) 
             {
