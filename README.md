@@ -281,6 +281,10 @@ The Ranorex **SendTimingValues** User Code allows you yo send End User Experienc
 
 To use that user code: 
 
+* Make sure the file was recorded with a browser having the Ranorex plugin up and running. 
+
+<p align="center"><img src="/screenshots/browserplugin.png" alt="Browser plugin" /></p>
+
 * Right click on the Ranorex recording file, and select **Add new action**, then **User code**, and then **Select from library**.
 
 <p align="center"><img src="/screenshots/selectfromlibrary.png" alt="Select from library" /></p>
@@ -289,9 +293,13 @@ To use that user code:
 
 <p align="center"><img src="/screenshots/neoloadnodecollection.png" alt="NeoLoad Node Collection" /></p> 
  
-* Fill column **domNode** and **transactionName**.
+* Fill column **domNode** with the DOM node of the element you need a timer.
 
-<p align="center"><img src="/screenshots/sendtimingvalues.png" alt="Send timing values" /></p> 
+<p align="center"><img src="/screenshots/domNode.png" alt="domNode.png" /></p>
+
+* Fill column **transactionName**. The timer values will be accessible in the NeoLoad External Data with a category of that transaction name.
+
+<p align="center"><img src="/screenshots/transactionName.png" alt="Transaction name" /></p> 
 
 * Insert the module NL_ConnectToDataExchangeAPI inside the test case. Make sure to insert this module after the test is started, and before executing the **SendTimingValues** code.
 
