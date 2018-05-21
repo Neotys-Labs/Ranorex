@@ -1,6 +1,6 @@
-MyNeoloadTest/packages/
-MyNeoloadTest/MyNeoloadTest/obj/
-MyNeoloadTest/MyNeoloadTest/bin/
+NeoloadRx/packages/
+NeoloadRx/NeoloadRx/obj/
+NeoloadRx/NeoloadRx/bin/
 Reports/
 */.vs/
 .gitattributes
