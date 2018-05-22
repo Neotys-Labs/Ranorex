@@ -3,4 +3,5 @@ NeoloadRx/NeoloadRx/obj/
 NeoloadRx/NeoloadRx/bin/
 Reports/
 */.vs/
+*.pref
 .gitattributes

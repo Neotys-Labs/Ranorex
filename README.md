@@ -20,7 +20,7 @@ It allows you to interact with the NeoLoad API:
 | Ranorex Licensing | [Ranorex license](https://www.ranorex.com/prices/) or a free [30-day trial](https://www.ranorex.com/free-trial/) |
 |Supported versions | Tested with Ranorex version [8.1.1](https://info.ranorex.com/e/428272/download-zip-Ranorex-8-1-1/9xvs1r/871610304) and NeoLoad version [6.4.0](https://www.neotys.com/support/download-neoload)|
 | Supported Browsers | Internet Explorer, Google Chrome|
-| Download Binaries | See the [latest release](https://github.com/Neotys-Labs/Ranorex/releases/latest)|
+| Download Binaries | See the [latest release](https://www.nuget.org/packages/Neoload.Ranorex/)|
 
 ## Setting up the NeoLoad Ranorex Plugin
 
