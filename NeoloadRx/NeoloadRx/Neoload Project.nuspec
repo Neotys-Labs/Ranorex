@@ -6,11 +6,11 @@
     <title>Neoload Ranorex Plugin</title>
     <authors>Neotys</authors>
     <owners>Neotys</owners>
-	<iconUrl>https://github.com/Neotys-Labs/Ranorex/blob/develop/screenshots/NeoLoad-Emblem-Primary.png</iconUrl>
+	<iconUrl>https://www.neotys.com/favicon-96x96.png</iconUrl>
     <licenseUrl>http://www.neotys.fr/documents/legal/bsd-neotys.txt</licenseUrl>
     <projectUrl>https://github.com/Neotys-Labs/Ranorex</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package is a Neoload Ranorex Plugin. For more information see <a href="https://github.com/Neotys-Labs/Ranorex"> documentation</a> </description>
+    <description>This package is a Neoload Ranorex Plugin. For more information see https://github.com/Neotys-Labs/Ranorex </description>
     <releaseNotes>First release including design, runtime and End User Experience features</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Neoload_Ranorex</tags>
