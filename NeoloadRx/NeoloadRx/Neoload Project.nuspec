@@ -2,14 +2,15 @@
 <package >
   <metadata>
     <id>Neoload.Ranorex</id>
-    <version>0.1.7</version>
+    <version>0.1.8</version>
     <title>Neoload Ranorex Plugin</title>
     <authors>Neotys</authors>
     <owners>Neotys</owners>
+	<iconUrl>https://github.com/Neotys-Labs/Ranorex/blob/develop/screenshots/NeoLoad-Emblem-Primary.png</iconUrl>
     <licenseUrl>http://www.neotys.fr/documents/legal/bsd-neotys.txt</licenseUrl>
     <projectUrl>https://github.com/Neotys-Labs/Ranorex</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This package is Neoload Ranorex Plugin</description>
+    <description>This package is a Neoload Ranorex Plugin. For more information see <a href="https://github.com/Neotys-Labs/Ranorex"> documentation</a> </description>
     <releaseNotes>First release including design, runtime and End User Experience features</releaseNotes>
     <copyright>Copyright 2018</copyright>
     <tags>Neoload_Ranorex</tags>
