@@ -4,4 +4,5 @@ NeoloadRx/NeoloadRx/bin/
 Reports/
 */.vs/
 *.pref
+*.nupkg
 .gitattributes
