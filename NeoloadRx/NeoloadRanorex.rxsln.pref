@@ -4,6 +4,6 @@
   <SerializedValue name="ModuleBrowserState">
     <ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
   </SerializedValue>
-  <ProjectBrowserState value="[Solution NeoloadRanorex[Solution Items[]Neoload Project[NeoLoad[]]]]&#xD;&#xA;Solution NeoloadRanorex\Neoload Project\NeoLoad\Modules&#xD;&#xA;Solution NeoloadRanorex" />
+  <ProjectBrowserState value="[Solution NeoloadRanorex[Solution Items[]Neoload Project (readonly)[]]]&#xD;&#xA;Solution NeoloadRanorex\Neoload Project (readonly)\The project file cannot be found.&#xD;&#xA;Solution NeoloadRanorex" />
   <StartupProject value="{638F4593-2836-4F59-A74A-4F5522FF2D01}" />
 </Properties>

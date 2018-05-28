@@ -66,7 +66,7 @@ namespace Ranorex.NeoLoad
 			}
 		}
 
-		public void StopNeoLoadTest(TimeSpan timeout, TimeSpan interval)
+		public void StopNeoLoadTest(TimeSpan timeout, TimeSpan interval, Boolean forceStop)
 		{
 			this.CheckRuntimeIsConnected();
 
@@ -75,7 +75,9 @@ namespace Ranorex.NeoLoad
 			{
 					case NtState.TEST_STOPPING: Report.Warn("Cannot stop NeoLoad test because it is already stopping."); break;
 				case NtState.TEST_RUNNING:
-					this.runtimeClient.StopTest(new StopTestParamsBuilder().Build());
+					StopTestParamsBuilder builder = new StopTestParamsBuilder();
+					builder.ForceStop = forceStop;
+					this.runtimeClient.StopTest(builder.Build());
 					this.WaitForNeoloadRuntimeState(NtState.READY, timeout, interval);
 					break;
 				default:

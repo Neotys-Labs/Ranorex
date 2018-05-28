@@ -9,7 +9,7 @@ namespace Ranorex.NeoLoad
         void AddVirtualUsers(string population, int ammount);
         void RemoveVirtualUsers(string population, int ammount);
         void StartNeoLoadTest(string scenario, TimeSpan timeout, TimeSpan interval);
-        void StopNeoLoadTest(TimeSpan timeout, TimeSpan interval);
+        void StopNeoLoadTest(TimeSpan timeout, TimeSpan interval, Boolean forceStop);
         
     }
     

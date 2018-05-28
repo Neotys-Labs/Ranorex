@@ -18,7 +18,15 @@ namespace Ranorex.NeoLoad
     {
         // For testing, make it mockable
         internal static INeoloadApi api = NeoloadApi.Instance;
-
+       
+       string _forceStop = "false";
+       [TestVariable("1e6bf3b2-e1a7-404c-8fa9-256a7de2b1b6")]
+       public string forceStop
+       {
+       	get { return _forceStop; }
+       	set { _forceStop = value; }
+       }
+        
         /// <summary>
         /// Timeout for the stop operation in the format 'hh:mm:ss'.
         /// </summary>
@@ -39,7 +47,7 @@ namespace Ranorex.NeoLoad
         
         void ITestModule.Run()
         {
-            api.StopNeoLoadTest(this.Timeout, this.Interval);
+            api.StopNeoLoadTest(this.Timeout, this.Interval, Boolean.Parse(forceStop));
         }
     }
 }
