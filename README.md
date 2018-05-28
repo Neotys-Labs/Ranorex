@@ -167,6 +167,7 @@ This module stops the currently running NeoLoad test.
 Parameters: 
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start a specific test (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a specific test (recommended value: **00:00:10**).
+* **forceStop**: Boolean. Default value is **false**.
 
 ### Module NL_AddVirtualUsers
 
