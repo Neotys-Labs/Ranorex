@@ -13,6 +13,7 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
+using MyNeoloadTest.NeoLoad;
 using Neotys.DataExchangeAPI.Client;
 using Neotys.DataExchangeAPI.Model;
 using Neotys.DesignAPI.Client;
@@ -95,7 +96,7 @@ namespace NeoloadDesignTest
 			}
 			else
 			{
-				_mode = getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
+				_mode = ModeHelper.getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
 			}
 		}
 		
@@ -191,6 +192,10 @@ namespace NeoloadDesignTest
 		                          string browser,
 		                          string testCase)
 		{
+			if (_mode != Mode.RUNTIME && _mode != Mode.END_USER_EXPERIENCE)
+			{
+				return;
+			}
 			CheckDataExchangeIsConnected();
 			var entriesToSend = navtiming.Select(nt =>
 			                                     BuildEntry(
@@ -215,7 +220,7 @@ namespace NeoloadDesignTest
 			}
 		}
 		
-		public void init(string designApiUrl, string apiKey)
+		public void ConnectToDesignApi(string designApiUrl, string apiKey)
 		{
 			if (_mode == Mode.NO_API)
 			{
@@ -230,6 +235,11 @@ namespace NeoloadDesignTest
 		
 		public void ConnectToDataExchangeApi(string dataExchangeApiUrl, string apiKey, NeoloadContextData ctx)
 		{
+			if (_mode != Mode.RUNTIME && _mode != Mode.END_USER_EXPERIENCE)
+			{
+				return;
+			}
+			
 			context = CreateContext(ctx);
 			if(apiKey == null)
 			{
@@ -271,7 +281,7 @@ namespace NeoloadDesignTest
 		
 		public void createNewNeoloadProject(string projectName, string directoryPath, bool overwriteExisting)
 		{
-			if (_mode == Mode.NO_API)
+			if (_mode != Mode.DESIGN)
 			{
 				return;
 			}
@@ -309,7 +319,7 @@ namespace NeoloadDesignTest
 		
 		public void saveNeoloadProject(TimeSpan timeout, TimeSpan interval)
 		{
-			if (_mode == Mode.NO_API)
+			if (_mode != Mode.DESIGN)
 			{
 				return;
 			}
@@ -490,7 +500,8 @@ namespace NeoloadDesignTest
 		
 		private void setNeoloadProxy(string host, int port, string excluded)
 		{
-			if(Mode.NO_API == _mode){
+			if (_mode != Mode.DESIGN)
+			{
 				return;
 			}
 			
@@ -518,7 +529,8 @@ namespace NeoloadDesignTest
 		
 		public void unsetNeoloadProxy()
 		{
-			if(Mode.DESIGN != _mode){
+			if (_mode != Mode.DESIGN)
+			{
 				return;
 			}
 			
@@ -558,8 +570,8 @@ namespace NeoloadDesignTest
 				Console.WriteLine(ex.ToString());
 				return 7400;
 			}
-	}
- 
+		}
+		
 		
 		[UserCodeMethod]
 		public void StartTransaction(string name)
@@ -633,29 +645,6 @@ namespace NeoloadDesignTest
 			return path;
 		}
 
-		public static Mode getPropertyValue(string key, Mode defaultValue)
-		{
-			string envValue = Environment.GetEnvironmentVariable(key);
-			if (envValue != null)
-			{
-				return (Mode)Enum.Parse(typeof(Mode), envValue);
-			}
 
-			string pattern = "-D" + Regex.Escape(key) + "=" + "(.+)";
-			foreach (string arg in Environment.GetCommandLineArgs())
-			{
-				MatchCollection matchCollection = Regex.Matches(arg, pattern);
-				if (matchCollection.Count > 0)
-				{
-					return (Mode)Enum.Parse(typeof(Mode), matchCollection[0].Groups[1].Value.ToUpper());
-				}
-			}
-			return defaultValue;
-		}
-
-	}
-	public enum Mode
-	{
-		DESIGN, END_USER_EXPERIENCE, NO_API
 	}
 }

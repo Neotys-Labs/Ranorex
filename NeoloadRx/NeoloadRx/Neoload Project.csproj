@@ -177,6 +177,9 @@
       <RepositoryCode>true</RepositoryCode>
       <id>5bf4f795-18a2-46c2-a20c-b61cb21f02d7</id>
     </Compile>
+    <Compile Include="NeoLoad\ModeHelper.cs">
+      <id>40343a09-66ef-49ee-8288-2e4c4e341ec9</id>
+    </Compile>
     <Compile Include="NeoLoad\config\ParamBuilderProvider.cs">
       <id>1cdb489f-bab8-4dcb-9ca7-2a37144aee83</id>
     </Compile>

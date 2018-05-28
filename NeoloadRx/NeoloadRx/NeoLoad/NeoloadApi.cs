@@ -14,6 +14,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Microsoft.Win32;
+using MyNeoloadTest.NeoLoad;
 using MyNeoloadTest.NeoLoad.config;
 using Neotys.CommonAPI.Error;
 using Neotys.RuntimeAPI.Client;
@@ -26,7 +27,9 @@ namespace Ranorex.NeoLoad
 	internal class NeoloadApi : INeoloadApi
 	{
 		public static INeoloadApi Instance { get; private set; }
-
+		
+		private static string OPT_RANOREX_NEOLOAD_MODE = "nl.ranorex.neoload.mode";
+		private static Mode _mode;
 		private IRuntimeAPIClient runtimeClient;
 		private ParamBuilderProvider paramBuilderProvider;
 
@@ -38,10 +41,33 @@ namespace Ranorex.NeoLoad
 		private NeoloadApi()
 		{
 			this.paramBuilderProvider = new ParamBuilderProvider();
+			string globalMode = null;
+			try
+			{
+				globalMode = TestSuite.Current.Parameters[OPT_RANOREX_NEOLOAD_MODE];
+			}
+			catch (Exception e)
+			{
+				// Do nothing
+			}
+			
+			if(!String.IsNullOrEmpty(globalMode))
+			{
+				_mode = (Mode)Enum.Parse(typeof(Mode), globalMode.ToUpper());
+			}
+			else
+			{
+				_mode = ModeHelper.getPropertyValue(OPT_RANOREX_NEOLOAD_MODE, Mode.NO_API);
+			}
 		}
 
 		public void ConnectToRuntimeApi(string runtimeApiUrl, string apiKey)
 		{
+			if (_mode != Mode.RUNTIME)
+			{
+				return;
+			}
+			
 			if(apiKey == null)
 			{
 				apiKey = String.Empty;
@@ -51,6 +77,10 @@ namespace Ranorex.NeoLoad
 
 		public void StartNeoLoadTest(string scenario, TimeSpan timeout, TimeSpan interval)
 		{
+			if (_mode != Mode.RUNTIME)
+			{
+				return;
+			}
 			this.CheckRuntimeIsConnected();
 
 			var curState = this.runtimeClient.getStatus();
@@ -68,6 +98,11 @@ namespace Ranorex.NeoLoad
 
 		public void StopNeoLoadTest(TimeSpan timeout, TimeSpan interval, Boolean forceStop)
 		{
+			if (_mode != Mode.RUNTIME)
+			{
+				return;
+			}
+			
 			this.CheckRuntimeIsConnected();
 
 			var curState = this.runtimeClient.getStatus();
@@ -111,6 +146,10 @@ namespace Ranorex.NeoLoad
 
 		public void AddVirtualUsers(string population, int ammount)
 		{
+			if (_mode != Mode.RUNTIME)
+			{
+				return;
+			}
 			this.CheckRuntimeIsConnected();
 
 			if (runtimeClient.getStatus() != NtState.TEST_RUNNING)
@@ -123,6 +162,10 @@ namespace Ranorex.NeoLoad
 
 		public void RemoveVirtualUsers(string population, int ammount)
 		{
+			if (_mode != Mode.RUNTIME)
+			{
+				return;
+			}
 			this.CheckRuntimeIsConnected();
 
 			if (runtimeClient.getStatus() != NtState.TEST_RUNNING)
@@ -143,6 +186,6 @@ namespace Ranorex.NeoLoad
 					"before any NeoLoad action is invoked.", "ConnectToRuntimeApi"));
 			}
 		}
-		
+
 	}
 }
