@@ -48,7 +48,7 @@ namespace NeoloadDesignTest.lib
       }
     	
       var wrapper = NeoloadDesignAPIWrapper.GetNeoloadDesignTimeWrapper;
-      wrapper.init(DesignApiUri, ApiKey);
+      wrapper.ConnectToDesignApi(DesignApiUri, ApiKey);
     }
   }
 }

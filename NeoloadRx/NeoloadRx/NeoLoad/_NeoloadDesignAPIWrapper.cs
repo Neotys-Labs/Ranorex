@@ -348,7 +348,8 @@ namespace NeoloadDesignTest
 			this.CheckDesignIsConnected();
 			
 			var status = _client.GetStatus();
-			if(status != DesignState.NO_PROJECT){
+			if(status != DesignState.NO_PROJECT)
+			{
 				_closeProjectPB.save(saveProject);
 				_closeProjectPB.forceStop(forceStop);
 				_client.CloseProject(_closeProjectPB.Build());

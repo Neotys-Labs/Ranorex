@@ -37,7 +37,7 @@ This will automatically add the necessary libraries to the Ranorex project. The 
 
 ## Global Configuration
 
-Three global modes exist: **DESIGN**, **END_USER_EXPERIENCE** and **NO_API**.
+Four global modes exist: **DESIGN**, **RUNTIME**, **END_USER_EXPERIENCE** and **NO_API**.
 The mode can be set as an environment variable (in this case a Ranorex Studio restart is mandatory) or as a global parameter of the test suite. The variable key to set is **nl.ranorex.neoload.mode**.
 
 To set a Ranorex test suite global parameter open Global parameters window:
@@ -51,17 +51,21 @@ Then add the key and the value of the parameter:
 If defined, the Ranorex test suite global parameter will overwrite the System environment variable.
 Default mode is **NO_API**.
 
+### No Api Mode
+
+All NeoLoad Modules are disabled. This mode is used to start only functional recording.
+
 ### Design Mode 
 
-Used for Neoload recording.
+Used for Neoload recording modules.
+
+### Runtime Mode 
+
+Used for Neoload runtime modules as StartTest and StopTest.
 
 ### End User Experience Mode
 
 Used to send measured timer to Data Exchange API.
-
-### No Api Mode
-
-No recording or measurement to do.
 
 ## NeoLoad module definitions
    
@@ -77,7 +81,7 @@ To access these values, go to the NeoLoad **Preferences**, then the **Project se
 
 ### Module NL_CreateProject
 
-This module creates a new NeoLoad project.
+This module creates a new NeoLoad project. Enabled only in **DESIGN** mode.
 Parameters: 
 * **projectName**: The name of the NeoLoad project.
 * **directoryPath**: The location of the project. By default projects are created in NeoLoad projects folder.
@@ -89,13 +93,6 @@ This module opens a NeoLoad project.
 Parameters: 
 * **filePath**: The path to the NLP file.
 
-### Module NL_SaveProject
-
-This module saves a NeoLoad project.
-Two optional parameters:
-* **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to accomplish the save action (default value: **00:05:00**). 
-* **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to save project (default value: **00:00:20**).
-
 ### Module NL_CloseProject
 
 This module closes a NeoLoad project.
@@ -103,9 +100,16 @@ Parameters:
 * **saveProject**: Boolean. Default value is **true**. If set to **false**, current project is not saved.
 * **forceStop**: Boolean. Default value is **false**. If set to **true**, running tests and recordings are stopped.
 
+### Module NL_SaveProject
+
+This module saves a NeoLoad project. Enabled only in **DESIGN** mode.
+Two optional parameters:
+* **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to accomplish the save action (default value: **00:05:00**). 
+* **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to save project (default value: **00:00:20**).
+
 ### Module NL_StartRecording
 
-This module starts a recording.
+This module starts a recording. Enabled only in **DESIGN** mode.
 Parameters: 
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
@@ -114,7 +118,7 @@ Parameters:
 
 ### Module NL_StartRecording_Extended
 
-This module is starts recording with more parameters.
+This module is starts recording with more parameters. Enabled only in **DESIGN** mode.
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
 * **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.
@@ -127,13 +131,13 @@ This module is starts recording with more parameters.
 
 ### Module NL_StopRecording
 
-This module stops a recording.
+This module stops a recording. Enabled only in **DESIGN** mode.
 Parameter: 
 * **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
 
 ### Module NL_StopRecording_Extended
 
-This module is stops recording with more paramùeters.
+This module is stops recording with more paramùeters. Enabled only in **DESIGN** mode.
 Parameters: 
 * **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
 * **frameworkParameterSearch**: Boolean. Default value is **true**.
@@ -145,7 +149,7 @@ Parameters:
 
 ### Module NL_ConnectToRuntimeAPI
 
-This module establishes a connection to the NeoLoad Runtime API. 
+This module establishes a connection to the NeoLoad Runtime API. Enabled only in **RUNTIME** mode.
 Parameters: 
 * **RuntimeApiUri**: The Uniform Resource Identifier (URI) of the NeoLoad REST service. 
 * **ApiKey**: API Key specified in NeoLoad project when identification is required. If no identification is required, this variable can be left blank.
@@ -155,7 +159,7 @@ To access these values, go to the NeoLoad **Preferences**, then the **Project se
 
 ### Module NL_StartTest
 
-This module starts a NeoLoad test scenario. You need to define the scenario in NeoLoad before.
+This module starts a NeoLoad test scenario. You need to define the scenario in NeoLoad before. Enabled only in **RUNTIME** mode.
 Parameters: 
 * **Scenario**: The scenario, as defined within the NeoLoad test, that should be started. 
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start a specific test (recommended value: **00:01:00**).
@@ -163,7 +167,7 @@ Parameters:
 
 ### Module NL_StopTest
 
-This module stops the currently running NeoLoad test.
+This module stops the currently running NeoLoad test. Enabled only in **RUNTIME** mode.
 Parameters: 
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start a specific test (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a specific test (recommended value: **00:00:10**).
@@ -171,21 +175,21 @@ Parameters:
 
 ### Module NL_AddVirtualUsers
 
-This module adds virtual users to a population, defined in a NeoLoad test scenario. This module can only be used when a test is already running.
+This module adds virtual users to a population, defined in a NeoLoad test scenario. This module can only be used when a test is already running. Enabled only in **RUNTIME** mode.
 Parameters: 
 * **Population**: The population, as defined in the NeoLoad test scenario, virtual users will be added to.
 * **Amount**: Integer. The amount of virtual users that should be added to the given population.
 
 ### Module NL_StopVirtualUsers
 
-This module stops virtual users from a population, which is defined in a NeoLoad test scenario. This module can only be used when a test is already running.
+This module stops virtual users from a population, which is defined in a NeoLoad test scenario. This module can only be used when a test is already running. Enabled only in **RUNTIME** mode.
 Parameters: 
 * **Population**: The population, as defined in the NeoLoad test, virtual users will be stopped from. 
 * **Amount**: The amount of virtual users specified that will be stopped from the given population.
 
 ### Module NL_ConnectToDataExchangeAPI
 
-This module establishes a connection to the NeoLoad Data Exchange API. 
+This module establishes a connection to the NeoLoad Data Exchange API. Enabled in **RUNTIME** and **END_USER_EXPERIENCE** modes.
 Parameters: 
 * **DataExchangeApiUri**: The Uniform Resource Identifier (URI) of the NeoLoad REST service. 
 * **ApiKey**: API Key specified in NeoLoad project when identification is required. If no identification is required, this variable can be left blank.
