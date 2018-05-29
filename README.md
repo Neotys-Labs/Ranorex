@@ -57,11 +57,11 @@ All NeoLoad Modules are disabled. This mode is used to start only functional rec
 
 ### Design Mode 
 
-Used for Neoload recording modules.
+Used for NeoLoad recording modules.
 
 ### Runtime Mode 
 
-Used for Neoload runtime modules as StartTest and StopTest.
+Used for NeoLoad runtime modules as StartTest and StopTest.
 
 ### End User Experience Mode
 
@@ -239,9 +239,9 @@ Interaction with the NeoLoad Design API allows you to record/update a Ranorex sc
 During the execution of the Ranorex test case, if the NeoLoad User Path does not exist, it will be created. Otherwise, the existing User Path will be updated. 
 
 ### How to manage transactions 
-Neoload transactions management can be done by inserting **user code** actions in the Ranorex recording.
+NeoLoad transactions management can be done by inserting **user code** actions in the Ranorex recording.
 ##### Design Mode
-* **StartTransaction**: Starts a new Neoload transaction. A transaction name is mandatory.
+* **StartTransaction**: Starts a new NeoLoad transaction. A transaction name is mandatory.
 * **StopTransaction**: Not used for this mode.
 ##### End User Experience Mode
 A connection to the Data Exchange API is required before invoking these actions.

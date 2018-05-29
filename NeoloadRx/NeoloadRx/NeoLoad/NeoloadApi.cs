@@ -90,7 +90,15 @@ namespace Ranorex.NeoLoad
 					case NtState.TEST_RUNNING: throw new InvalidOperationException("A Neotys test is already running. Cannot start new test run.");
 				default:
 					this.WaitForNeoloadRuntimeState(NtState.READY, timeout, interval);
-					this.runtimeClient.StartTest(new StartTestParamsBuilder(scenario).Build());
+					try
+					{
+						this.runtimeClient.StartTest(new StartTestParamsBuilder(scenario).Build());
+					}
+					catch(NeotysAPIException e)
+					{
+						throw new InvalidOperationException("Error starting test.",e);
+					}
+					
 					this.WaitForNeoloadRuntimeState(NtState.TEST_RUNNING, timeout, interval);
 					break;
 			}

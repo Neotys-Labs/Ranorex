@@ -144,11 +144,16 @@ namespace NeoloadDesignTest
 		
 		private static List<string> CreateCommonRootPath(string testCase, string browser, string transaction)
 		{
-			return new List<string>()
-			{
-				testCase,
-				transaction,
-			};
+			List<string> list = new List<string>(); 
+			if(!String.IsNullOrEmpty(transaction))
+			   {
+			   	list.Add(transaction);
+			   }
+			if(!String.IsNullOrEmpty(testCase))
+			   {
+			   	list.Add(testCase);
+			   }
+			return list;
 		}
 		
 		private static Entry BuildEntry(
