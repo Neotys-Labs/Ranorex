@@ -590,7 +590,7 @@ namespace NeoloadDesignTest
 					throw(new Exception("Error!! No recording currently running!"));
 				_client.SetContainer(new SetContainerParams(name));
 			}
-			else if(Mode.END_USER_EXPERIENCE == _mode)
+			else if(Mode.END_USER_EXPERIENCE == _mode || Mode.RUNTIME == _mode)
 			{
 				CheckDataExchangeIsConnected();
 				if (transactionName != null)
@@ -607,7 +607,7 @@ namespace NeoloadDesignTest
 		
 		public void StopTransaction()
 		{
-			if(Mode.END_USER_EXPERIENCE == _mode)
+			if(Mode.END_USER_EXPERIENCE == _mode  || Mode.RUNTIME == _mode)
 			{
 				CheckDataExchangeIsConnected();
 				HandleTimer();

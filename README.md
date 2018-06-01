@@ -38,7 +38,7 @@ This will automatically add the necessary libraries to the Ranorex project. The 
 ## Global Configuration
 
 Four global modes exist: **DESIGN**, **RUNTIME**, **END_USER_EXPERIENCE** and **NO_API**.
-The mode can be set as an environment variable (in this case a Ranorex Studio restart is mandatory) or as a global parameter of the test suite. The variable key to set is **nl.ranorex.neoload.mode**.
+The mode can be set as an environment variable (in this case a Ranorex Studio restart is mandatory) or as a global parameter of the test suite. The variable key to set is **nl.ranorex.neoload.mode** .
 
 To set a Ranorex test suite global parameter open Global parameters window:
 
