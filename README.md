@@ -236,7 +236,11 @@ Interaction with the NeoLoad Design API allows you to record/update a Ranorex sc
 
 <p align="center"><img src="/screenshots/startstoprecording.png" alt="Start stop recording" /></p>
 
+* If the application is SSL, make sure the browser used to run the Ranorex script has the NeoLoad Root certificate installed. See [NeoLoad documentation](https://www.neotys.com/documents/doc/neoload/latest/en/html/#757.htm) for more details.
+
 During the execution of the Ranorex test case, if the NeoLoad User Path does not exist, it will be created. Otherwise, the existing User Path will be updated. 
+
+
 
 ### How to manage transactions 
 NeoLoad transactions management can be done by inserting **user code** actions in the Ranorex recording.
