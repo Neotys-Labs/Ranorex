@@ -102,8 +102,7 @@ namespace Ranorex.NeoLoad
 
         private static NavTiming CalculateTiming(Dictionary<string, long> src, KeyMapping mapping)
         {
-            var delay = src[mapping.EndKey] - src[mapping.StartKey];
-            Debug.Assert(delay > 0);
+            var delay = src[mapping.EndKey] - src[mapping.StartKey];            
             if(delay < 0){
             	 delay = 0;
             }
