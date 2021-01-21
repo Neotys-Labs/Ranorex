@@ -7,8 +7,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MyNeoloadTest</RootNamespace>
     <AssemblyName>Neoload Project</AssemblyName>
-    <RanorexVersion>8.1</RanorexVersion>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RanorexVersion>9.3</RanorexVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <RanorexTargetsPath>$(MSBuildProgramFiles32)\MSBuild\Ranorex$(RanorexVersion)\Ranorex.MSBuild.Targets</RanorexTargetsPath>
     <projectdefaultrepository>65cc9a31-65f4-4598-914a-687e10380aa4</projectdefaultrepository>
     <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>

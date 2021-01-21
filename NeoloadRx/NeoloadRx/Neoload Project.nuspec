@@ -2,12 +2,12 @@
 <package >
   <metadata>
     <id>Neoload.Ranorex</id>
-    <version>0.2.1</version>
+    <version>0.3.0</version>
     <title>Neoload Ranorex Plugin</title>
     <authors>Neotys</authors>
     <owners>Neotys</owners>
-	<iconUrl>https://www.neotys.com/favicon-96x96.png</iconUrl>
-    <licenseUrl>http://www.neotys.fr/documents/legal/bsd-neotys.txt</licenseUrl>
+	<icon>https://www.neotys.com/favicon-96x96.png</icon>
+    <license>http://www.neotys.fr/documents/legal/bsd-neotys.txt</license>
     <projectUrl>https://github.com/Neotys-Labs/Ranorex</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This package is a Neoload Ranorex Plugin. For more information see https://github.com/Neotys-Labs/Ranorex </description>
@@ -18,7 +18,7 @@
       <dependency id="NeotysRestRuntimeAPI " version="1.0.1" />
       <dependency id="NeotysRestDataExchangeAPI " version="1.0.0" />
       <dependency id="Newtonsoft.Json" version="6.0.8" />
-    </dependencies>    
+    </dependencies>
   </metadata>
   <files>
 	  <file src="NeoLoad\**\*.*" target="content\NeoLoad" />
