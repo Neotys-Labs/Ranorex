@@ -18,7 +18,7 @@ It allows you to interact with the NeoLoad API:
 | License           | [BSD 2-Clause "Simplified"](https://github.com/Neotys-Labs/Ranorex/blob/master/LICENSE) |
 | NeoLoad Licensing | License FREE edition, or Enterprise edition, or Professional with Integration & Advanced Usage|
 | Ranorex Licensing | [Ranorex license](https://www.ranorex.com/prices/) or a free [30-day trial](https://www.ranorex.com/free-trial/) |
-|Supported versions | Tested with Ranorex version [8.1.1](https://info.ranorex.com/e/428272/download-zip-Ranorex-8-1-1/9xvs1r/871610304) and NeoLoad version [6.4.0](https://www.neotys.com/support/download-neoload)|
+|Supported versions | Tested with Ranorex version 9.3.4 and NeoLoad version [7.7.0](https://www.neotys.com/support/download-neoload)|
 | Supported Browsers | Internet Explorer, Google Chrome|
 | Download Binaries | See the [latest release](https://www.nuget.org/packages/Neoload.Ranorex/)|
 
@@ -114,7 +114,7 @@ Parameters:
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
 * **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.
-* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a “_X” suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
+* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a ï¿½_Xï¿½ suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
 
 ### Module NL_StartRecording_Extended
 
@@ -122,7 +122,7 @@ This module is starts recording with more parameters. Enabled only in **DESIGN**
 * **Timeout**: The maximum amount of time (in hh:mm:ss) given to Ranorex to start the recording (recommended value: **00:01:00**). 
 * **Interval**: The time interval (in hh:mm:ss) after which Ranorex retries to start a recording (recommended value: **00:00:10**).
 * **UpdateUserPath**: Boolean. Default value is **true**. Update existing user path. If set to **false** the existing user path will not be updated and and error will be thrown.
-* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a “_X” suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
+* **userPath**: The name of the User Path to create (the default value is "UserPath"). If the name is already used and **UpdateUserPath** is true, then it is automatically renamed using a ï¿½_Xï¿½ suffix, where X is an integer. If the name has invalid characters then they will be escaped as an underscore (_) and no error is thrown.
 * **userAgentString**: Used to specify the user agent.
 * **isWebSocketProtocol**: Boolean. Default value is **false**.
 * **isHttp2Protocol**: Boolean. Default value is **false**.
@@ -137,7 +137,7 @@ Parameter:
 
 ### Module NL_StopRecording_Extended
 
-This module is stops recording with more paramùeters. Enabled only in **DESIGN** mode.
+This module is stops recording with more paramï¿½eters. Enabled only in **DESIGN** mode.
 Parameters: 
 * **nl_timeout**: Integer. Default value is **1200** seconds. Set the timeout in seconds to wait for the end of the post record process. 
 * **frameworkParameterSearch**: Boolean. Default value is **true**.
